@@ -38,7 +38,7 @@ export function DaySales(props: DaySalesProps) {
             <input 
             type="button" 
             value="Gerar Relátorio"
-            className="bg-aquaBlue w-[32rem] h-[5rem] text-4xl cursor-pointer"
+            className="bg-aquaBlue w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity"
             />
     </section>
     )

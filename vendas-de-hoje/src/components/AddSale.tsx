@@ -11,7 +11,11 @@ export function AddSale(props: AddSaleProps) {
     
     async function RegisterSale(e: FormEvent) {
         e.preventDefault()
-        props.setSales([...props.sales, {type: selected, value: Number(saleValue)}])
+        if (Number(saleValue) == 0 || saleValue == '') {
+            alert('Digite uma venda válida')
+        } else {
+            props.setSales([...props.sales, {type: selected, value: Number(saleValue)}])
+        }
         
         
     }
@@ -31,7 +35,8 @@ export function AddSale(props: AddSaleProps) {
                         onChange={(e) => setSaleValue(e.target.value)}
                         type="number" 
                         className=" h-full bg-transparent text-white w-full placeholder:text-grayPlaceholde3r focus:outline-none "
-                        placeholder="00,00"
+                        placeholder="00,00" 
+                        
                     />
                 </span>
                 <div className="flex flex-col items-start justify-start w-[21.5rem] gap-11 ">
