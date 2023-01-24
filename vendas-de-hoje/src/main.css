@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  @apply rounded-md
+ 
+}
+body {
+  @apply bg-blackBg text-white px-[3.125rem] 
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-[5px]  border-2
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-blackBg  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-aquaBlue rounded-full
+}
