@@ -1,5 +1,4 @@
 import { CreditCard, Money, CurrencyCircleDollar } from "phosphor-react"
-import { useState } from "react"
 import classNames from 'classnames'
 
 export type SaleType = 'Money' | 'CreditCard' | 'Pix'

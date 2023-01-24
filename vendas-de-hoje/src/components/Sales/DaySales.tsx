@@ -1,5 +1,5 @@
 import { Sale } from "./Sale";
-import { SaleType } from "./SaleTypeButton";
+import { SaleType } from "../AddSale/SaleTypeButton";
 
 interface DaySalesProps {
     sales: {type: SaleType; value: number; }[]
@@ -12,8 +12,9 @@ export function DaySales(props: DaySalesProps) {
 
     function deleteSale(index: number) {
         const salesNewArray = [...props.sales]
-            salesNewArray.splice(index, 1)
-            props.setSales(salesNewArray)
+        salesNewArray.splice(index, 1)
+        props.setSales(salesNewArray)
+        localStorage.setItem('Sales', JSON.stringify(salesNewArray))
     }
 
 

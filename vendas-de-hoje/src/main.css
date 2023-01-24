@@ -8,7 +8,7 @@
  
 }
 body {
-  @apply bg-blackBg text-white px-[3.125rem] 
+  @apply bg-blackBg text-white 
 }
 
 @layer base {

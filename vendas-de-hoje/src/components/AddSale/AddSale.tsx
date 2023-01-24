@@ -5,6 +5,7 @@ interface AddSaleProps {
     setSales: (type: ({type: SaleType; value: number; }[])) => void
     sales: {type: SaleType; value: number; }[]
 }
+
 export function AddSale(props: AddSaleProps) {
     const [selected, setSelected] = useState<SaleType>('Money')
     const [saleValue, setSaleValue] = useState('')
@@ -15,13 +16,15 @@ export function AddSale(props: AddSaleProps) {
             alert('Digite uma venda válida')
         } else {
             props.setSales([...props.sales, {type: selected, value: Number(saleValue)}])
+            localStorage.setItem('Sales', JSON.stringify([...props.sales, {type: selected, value: Number(saleValue)}]))
+            setSaleValue('')
         }
         
         
     }
 
     return (
-        <aside className="flex items-center flex-col justify-center gap-11 mb-5">
+        <aside className="flex items-center flex-col justify-center gap-12 mb-5">
             <h1 className="font-semibold text-[2.6rem]">Adicionar a Lista</h1>
             <form 
             action="submit"
