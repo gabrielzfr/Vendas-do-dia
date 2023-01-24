@@ -4,7 +4,7 @@
 
 * {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
-  @apply rounded-md
+  @apply rounded-md focus:outline-offset-0 
  
 }
 body {

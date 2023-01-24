@@ -5,16 +5,14 @@ import { SaleType } from "../components/SaleTypeButton";
 
 
 export function Index() {
-    const [sales, setSales] = useState<{type: SaleType; value: number; }[]>([
-
-    ])
+    const [sales, setSales] = useState<{type: SaleType; value: number; }[]>([])
     
 
-    
     return (
         <main className="flex justify-center gap-28 p-5 qq:flex-nowrap flex-wrap">
-            <DaySales sales={sales} />
-            <AddSale setSale={setSales} sales={sales}/>
+            <DaySales sales={sales} setSales={setSales} />
+            <AddSale setSales={setSales} sales={sales}/>
+            
         </main>
     )
 }

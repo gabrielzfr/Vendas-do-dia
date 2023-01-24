@@ -2,8 +2,8 @@ import { FormEvent, useState } from "react";
 import { SaleType, SaleTypeButton } from "./SaleTypeButton";
 
 interface AddSaleProps {
-    setSale: (type: ({type: string; value: number; }[])) => void
-    sales: {type: string; value: number; }[]
+    setSales: (type: ({type: SaleType; value: number; }[])) => void
+    sales: {type: SaleType; value: number; }[]
 }
 export function AddSale(props: AddSaleProps) {
     const [selected, setSelected] = useState<SaleType>('Money')
@@ -11,7 +11,7 @@ export function AddSale(props: AddSaleProps) {
     
     async function RegisterSale(e: FormEvent) {
         e.preventDefault()
-        props.setSale([...props.sales, {type: selected, value: Number(saleValue)}])
+        props.setSales([...props.sales, {type: selected, value: Number(saleValue)}])
         
         
     }
@@ -23,14 +23,14 @@ export function AddSale(props: AddSaleProps) {
             action="submit"
             className="flex flex-col items-center gap-9"
             >
-                <span className="w-[21.5rem] h-[7.25rem] bg-grayBg px-3 text-7xl flex items-center gap-5">
+                <span className="w-[21.5rem] h-[7.25rem] bg-grayBg px-3 text-7xl flex items-center gap-5 ">
                     <label className="text-aquaBlue">R$</label>
                     <input 
                         name="value"
                         value={saleValue}
                         onChange={(e) => setSaleValue(e.target.value)}
                         type="number" 
-                        className=" h-full bg-transparent text-white w-full placeholder:text-grayPlaceholde3r focus:outline-none focus:border-b-aquaBlue border-1"
+                        className=" h-full bg-transparent text-white w-full placeholder:text-grayPlaceholde3r focus:outline-none "
                         placeholder="00,00"
                     />
                 </span>
@@ -58,7 +58,8 @@ export function AddSale(props: AddSaleProps) {
                 </div>
                 <input 
                 type="submit" value="Adicionar Venda"
-                className="w-[21rem] h-[4.5rem] bg-aquaBlue text-2xl cursor-pointer font-bold "
+                className="w-[21rem] h-[4.5rem] bg-aquaBlue text-2xl cursor-pointer font-bold hover:opacity-80 transition-opacity
+                    "
                 onClick={RegisterSale}
                     />
             </form>

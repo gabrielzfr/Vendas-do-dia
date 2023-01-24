@@ -2,25 +2,27 @@ import { CreditCard, CurrencyCircleDollar, Money, X } from "phosphor-react"
 
 
 interface SaleProps {
-    icon: string
+    saleType: string
     value: number
+    id: number
+    deleteSale: (type: number) => void
 }
 export function Sale(props: SaleProps) {
     return (
         <li
-        className="w-[100%] bg-blackBg h-28 px-7 flex  items-center justify-center pr-2">
+        className="w-[100%] bg-blackBg h-28 px-7 flex  items-center justify-center pr-2" data-key={props.id}>
         {
-        props.icon == 'Money' ?
+        props.saleType == 'Money' ?
         <Money size={120} className="text-aquaBlue" /> :
-        props.icon == 'CreditCard' ? 
+        props.saleType == 'CreditCard' ? 
         <CreditCard size={120} className="text-aquaBlue" /> :
         <CurrencyCircleDollar size={120} className="text-aquaBlue" />
         }
         
         <div className="text-center w-[calc(100%-101px)]">
-            <p className=" text-[5.2rem] w-">{props.value}</p>
+            <p className=" text-[5.2rem] w-">{props.value.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
         </div>
-        <button>
+        <button onClick={() => props.deleteSale(props.id)}>
             <X size={70} />
         </button>
     </li>   
