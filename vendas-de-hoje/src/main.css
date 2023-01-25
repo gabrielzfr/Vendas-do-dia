@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -9,9 +14,9 @@
  
 }
 body {
-  line-height: 0.5 !important;
   @apply bg-blackBg text-white 
 }
+
 
 #report {
   

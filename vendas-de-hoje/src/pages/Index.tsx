@@ -13,6 +13,7 @@ export function Index() {
 
     const [showReport, setShowReport] = useState(false)
 
+
     return (
         <>
             {showReport ? <Report sales={sales} setShowReport={setShowReport} /> : '' }
