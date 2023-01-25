@@ -8,7 +8,7 @@ interface SaleItemReportProps {
 }
 export function SaleItemReport(props: SaleItemReportProps) {
     return (
-        <div className="w-[15rem] h-[8.5rem] bg-grayBg flex flex-col justify-center gap-2 pt-3">
+        <div className="w-[15rem] h-[8.5rem] bg-grayBg flex flex-col justify-start gap-7 pt-5">
              <span className="flex items-center justify-center gap-2 text-aquaBlue h-[2.5rem]">
                 {
                     props.saleType == 'Money' ?
@@ -22,7 +22,7 @@ export function SaleItemReport(props: SaleItemReportProps) {
 
                 }
                 
-                <h2 className="text-[1.625rem] font-semibold">
+                <h2 className="text-[1.625rem] font-semibold flex">
                     {props.title}
                 </h2>
              </span>

@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Gabriel tentar fazer com que fique com line height no body apenas na hora de copiar o o Relaorio*/
 * {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   @apply rounded-md focus:outline-offset-0 
  
 }
 body {
+  line-height: 0.5 !important;
   @apply bg-blackBg text-white 
 }
+
+#report {
+  
+}
+
 
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
