@@ -3,13 +3,12 @@ import { SaleType } from "../AddSale/SaleTypeButton";
 
 interface DaySalesProps {
     sales: {type: SaleType; value: number; }[]
-    
     setSales: (type: ({type: SaleType; value: number; }[])) => void
+    setShowReport: (type: boolean) => void
 }
 
 
 export function DaySales(props: DaySalesProps) {
-
     function deleteSale(index: number) {
         const salesNewArray = [...props.sales]
         salesNewArray.splice(index, 1)
@@ -40,6 +39,7 @@ export function DaySales(props: DaySalesProps) {
             type="button" 
             value="Gerar Relátorio"
             className="bg-aquaBlue w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => props.setShowReport(true)}
             />
     </section>
     )

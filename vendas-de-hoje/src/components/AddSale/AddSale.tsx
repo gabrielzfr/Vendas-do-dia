@@ -15,8 +15,9 @@ export function AddSale(props: AddSaleProps) {
         if (Number(saleValue) == 0 || saleValue == '') {
             alert('Digite uma venda válida')
         } else {
-            props.setSales([...props.sales, {type: selected, value: Number(saleValue)}])
-            localStorage.setItem('Sales', JSON.stringify([...props.sales, {type: selected, value: Number(saleValue)}]))
+            const sales = [...props.sales, {type: selected, value: Number(saleValue)}]
+            props.setSales(sales)
+            localStorage.setItem('Sales', JSON.stringify(sales))
             setSaleValue('')
         }
         
