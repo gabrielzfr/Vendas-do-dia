@@ -13,7 +13,7 @@ export function SaleTypeButton(props:SaleTypeButtonProps) {
     const isSelected = props.icon == props.selected
     return (
         <button type="button" onClick={() => props.setSelected(props.icon)}>
-            <div className={classNames("flex items-center gap-3 transition-colors delay-75", {
+            <div className={classNames("flex items-center gap-3 transition-colors delay-75 ", {
                 'text-aquaBlue': isSelected 
             })}>
                 {
@@ -24,7 +24,7 @@ export function SaleTypeButton(props:SaleTypeButtonProps) {
                 : 
                 <CurrencyCircleDollar size={76} />   
                 }
-                <span className="text-2xl font-semibold">
+                <span className="text-2xl font-semibold sm:inline hidden">
                     {props.title}
                 </span>
             </div>

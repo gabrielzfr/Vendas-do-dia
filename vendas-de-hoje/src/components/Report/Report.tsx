@@ -54,11 +54,14 @@ export function Report(props: ReportProps) {
 
 
     return (
-        <span className="fixed z-10 w-[100%] h-[100vh] bg-black bg-opacity-60 flex justify-center items-center" id="report">
-            <div className="w-[32rem] h-[52rem] bg-blackBg text-center p-4 flex flex-col gap-7" >
+        <span className="fixed z-10 w-[100%] h-[100%] overflow-y-auto bg-black bg-opacity-60 flex justify-center sm:items-center" id="report">
+            <div className="sm:w-[32rem] sm:h-[52rem] w-full bg-blackBg text-center mm:p-4 flex flex-col gap-7" >
                 <div className="flex flex-col gap-7 bg-blackBg rounded-none" data-report>
-                    <span className="flex justify-end ">
-                        <div className="flex justify-between items-center  w-[67%]">
+                    
+                        <div className="flex justify-between items-center  w-full">
+                            <span className="w-[40px]">
+                                
+                            </span>
                             <h1 className="text-4xl font-bold">
                                 Relátorio
                             </h1>
@@ -71,7 +74,6 @@ export function Report(props: ReportProps) {
                                 <X  size={40} weight={'bold'}/>
                             </button>
                         </div>
-                    </span>
                     <div className="flex flex-col items-center gap-7 bg-blackBg rounded-none" >
                         <SaleItemReport saleType="Money" title="Dinheiro"
                         value={moneySalesTotal} />

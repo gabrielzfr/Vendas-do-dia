@@ -25,25 +25,25 @@ export function AddSale(props: AddSaleProps) {
     }
 
     return (
-        <aside className="flex items-center flex-col justify-center gap-12 mb-5">
-            <h1 className="font-semibold text-[2.6rem]">Adicionar a Lista</h1>
+        <aside className="flex items-center flex-col justify-center gap-12 mb-5 sm:w-[21.5rem] w-[75%]">
+            <h1 className="font-semibold text-[2.6rem] text-center">Adicionar a Lista</h1>
             <form 
             action="submit"
             className="flex flex-col items-center gap-9"
             >
-                <span className="w-[21.5rem] h-[7.25rem] bg-grayBg px-3 text-7xl flex items-center gap-5 ">
+                <span className=" w-full sm:h-[7.25rem] h-[9rem] bg-grayBg px-3 sm:text-7xl text-[5rem] justify-center flex items-center gap-5">
                     <label className="text-aquaBlue">R$</label>
                     <input 
                         name="value"
                         value={saleValue}
                         onChange={(e) => setSaleValue(e.target.value)}
                         type="number" 
-                        className=" h-full bg-transparent text-white w-full placeholder:text-grayPlaceholde3r focus:outline-none "
+                        className=" h-full bg-transparent text-white w-full text-center placeholder:text-grayPlaceholde3r focus:outline-none "
                         placeholder="00,00" 
                         
                     />
                 </span>
-                <div className="flex flex-col items-start justify-start w-[21.5rem] gap-11 ">
+                <div className="flex sm:flex-col items-start sm:justify-start justify-between w-full gap-11 ">
                     <SaleTypeButton 
                         selected={selected} 
                         icon={'Money'} 
@@ -67,7 +67,7 @@ export function AddSale(props: AddSaleProps) {
                 </div>
                 <input 
                 type="submit" value="Adicionar Venda"
-                className="w-[21rem] h-[4.5rem] bg-aquaBlue text-2xl cursor-pointer font-bold hover:opacity-80 transition-opacity
+                className="w-full sm:h-[4.5rem] h-[6rem] bg-aquaBlue sm:text-2xl text-4xl cursor-pointer font-bold hover:opacity-80 transition-opacity
                     "
                 onClick={RegisterSale}
                     />
