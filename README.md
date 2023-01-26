@@ -2,10 +2,14 @@
 ![Project image](https://github.com/gabrielzfr/Vendas-de-Hoje/blob/main/vendas-de-hoje/public/Vendas%20do%20DIa.png?raw=true)
 ##### Projeto Feito por GabrielzFr
 
-## Projeto feito em React com Typescript e [Vite](https://vitejs.dev/) com as Bibliotecas:
+## Aplicação feita em React com Typescript e [Vite](https://vitejs.dev/) com as Bibliotecas:
 
 - ### [React](https://pt-br.reactjs.org/)
 - ### [Tawilnd](https://tailwindcss.com/) 
 - ### [Html2Canvas](https://html2canvas.hertzen.com/) 
 - ### [Phosphor Icons](https://phosphoricons.com/) 
 - ### [Classnames](https://jedwatson.github.io/classnames/)  
+
+### Deploy da Aplicação no Vercel:
+
+#### [Vendas-de-Hoje](https://vendas-de-hoje.vercel.app/)
