@@ -15,5 +15,5 @@
 ### [Vendas-de-Hoje](https://vendas-de-hoje.vercel.app)
 
 ## Descrição do Projeto:
-  Uma Aplicação React com objetivo de registrar vendas de varejo em 3 tipos de pagamentos na Aplicação e no Armazenamento Local e crie um relátorio das vendas registradas para controle
+  Uma Aplicação React com objetivo de registrar vendas de varejo em 3 tipos de pagamentos na Aplicação e no Armazenamento Local e crie um relátorio das vendas registradas para controle.
 
