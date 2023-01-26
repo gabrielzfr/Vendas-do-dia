@@ -38,7 +38,7 @@ export function AddSale(props: AddSaleProps) {
                         value={saleValue}
                         onChange={(e) => setSaleValue(e.target.value)}
                         type="number" 
-                        className=" h-full bg-transparent text-white w-full text-center placeholder:text-grayPlaceholde3r focus:outline-none "
+                        className=" h-full bg-transparent text-white w-full sm:text-start text-center placeholder:text-grayPlaceholde3r focus:outline-none "
                         placeholder="00,00" 
                         
                     />
