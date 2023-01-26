@@ -1,5 +1,5 @@
 # Vendas-de-Hoje
-![Project image]()
+![Project image](https://github.com/gabrielzfr/Vendas-de-Hoje/blob/main/vendas-de-hoje/public/Vendas%20do%20DIa.png?raw=true)
 ##### Projeto Feito por GabrielzFr
 
 ## Projeto feito em React com Typescript e [Vite](https://vitejs.dev/) com as Bibliotecas:
