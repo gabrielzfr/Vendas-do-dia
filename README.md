@@ -12,4 +12,4 @@
 
 ### Deploy da Aplicação no Vercel:
 
-#### [Vendas-de-Hoje](https://vendas-de-hoje.vercel.app/)
+#### <a href="http://example.com/](https://vendas-de-hoje.vercel.app/" target="_blank">Vendas-de-Hoje</a>
