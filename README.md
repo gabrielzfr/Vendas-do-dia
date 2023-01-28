@@ -1,4 +1,4 @@
-# Vendas-de-Hoje
+# Vendas de Hoje
 ![Project image](https://github.com/gabrielzfr/Vendas-de-Hoje/blob/main/vendas-de-hoje/public/Vendas%20do%20DIa.png?raw=true)
 ##### Projeto Feito por GabrielzFr
 
