@@ -1,0 +1,1 @@
+export type SaleType = 'Money' | 'CreditCard' | 'Pix'

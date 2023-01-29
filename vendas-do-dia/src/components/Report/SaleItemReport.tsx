@@ -1,5 +1,5 @@
 import { CreditCard, CurrencyCircleDollar, Money, Star } from "phosphor-react"
-import { SaleType } from "../AddSale/SaleTypeButton"
+import { SaleType } from "../../common/types/SaleType"
 
 interface SaleItemReportProps {
     title: string

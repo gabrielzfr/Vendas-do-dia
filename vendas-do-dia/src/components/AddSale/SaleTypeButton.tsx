@@ -1,8 +1,8 @@
 import { CreditCard, Money, CurrencyCircleDollar } from "phosphor-react"
 import classNames from 'classnames'
+import { SaleType } from "../../common/types/SaleType"
 
-export type SaleType = 'Money' | 'CreditCard' | 'Pix'
-
+ 
 interface SaleTypeButtonProps {
     icon: SaleType
     title: string
@@ -31,3 +31,4 @@ export function SaleTypeButton(props:SaleTypeButtonProps) {
         </button>
     )
 }
+

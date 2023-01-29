@@ -1,18 +1,21 @@
+import { useContext } from "react";
+import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
 import { Sale } from "./Sale";
-import { SaleType } from "../AddSale/SaleTypeButton";
 
 interface DaySalesProps {
-    sales: {type: SaleType; value: number; }[]
-    setSales: (type: ({type: SaleType; value: number; }[])) => void
     setShowReport: (type: boolean) => void
 }
 
 
 export function DaySales(props: DaySalesProps) {
+    const {sales, setSales} = useContext(SalesContext)
+    
     function deleteSale(index: number) {
-        const salesNewArray = [...props.sales]
+        const salesNewArray = [...sales]
         salesNewArray.splice(index, 1)
-        props.setSales(salesNewArray)
+
+        setSales(salesNewArray)
+
         localStorage.setItem('Sales', JSON.stringify(salesNewArray))
     }
 
@@ -24,7 +27,7 @@ export function DaySales(props: DaySalesProps) {
         </h1>
         <article className="md:w-[48rem] h-[42rem] bg-grayBg sm:px-10 px-5 py-6 overflow-y-auto w-[95vw]">
             <ul className="w-full flex sm:gap-8 gap-5 flex-wrap justify-center">
-            {props.sales.map((sale, index) => {
+            {sales.map((sale, index) => {
                     return (
                        <Sale saleType={sale.type} value={sale.value}
                        key={index} id={index}

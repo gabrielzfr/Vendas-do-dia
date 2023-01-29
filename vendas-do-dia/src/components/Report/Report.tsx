@@ -1,22 +1,25 @@
 import { X } from "phosphor-react";
 import html2canvas from 'html2canvas';
-import { SaleType } from "../AddSale/SaleTypeButton";
 import { SaleItemReport } from "./SaleItemReport";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classNames from "classnames";
+import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
 
 interface ReportProps {
     setShowReport: (type: boolean) => void
-    sales: {type: SaleType; value: number;}[]
 }
 
 
 export function Report(props: ReportProps) {
     const [takingPrint, isTakingPrint] = useState(false)
 
-    const moneySalesTotal = props.sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
-    const creditSalesTotal = props.sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
-    const pixSalesTotal = props.sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
+    const {sales} = useContext(SalesContext)
+
+    const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
+    
+    const creditSalesTotal = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
+    
+    const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
 
     const salesTotal = [moneySalesTotal, creditSalesTotal, pixSalesTotal].reduce((acc, saleTotalItem) => acc + saleTotalItem, 0 )
 

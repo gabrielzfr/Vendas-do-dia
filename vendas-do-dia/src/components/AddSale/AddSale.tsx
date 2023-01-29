@@ -1,13 +1,15 @@
-import { FormEvent, useState } from "react";
-import { SaleType, SaleTypeButton } from "./SaleTypeButton";
+import { FormEvent, useContext, useState } from "react";
+import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
+import { SaleType } from "../../common/types/SaleType";
+import { SaleTypeButton } from "./SaleTypeButton";
 
-interface AddSaleProps {
-    setSales: (type: ({type: SaleType; value: number; }[])) => void
-    sales: {type: SaleType; value: number; }[]
-}
 
-export function AddSale(props: AddSaleProps) {
+export function AddSale() {
+
+    const {sales, setSales} = useContext(SalesContext)
+
     const [selected, setSelected] = useState<SaleType>('Money')
+
     const [saleValue, setSaleValue] = useState('')
     
     async function RegisterSale(e: FormEvent) {
@@ -15,9 +17,12 @@ export function AddSale(props: AddSaleProps) {
         if (Number(saleValue) == 0 || saleValue == '') {
             alert('Digite uma venda válida')
         } else {
-            const sales = [...props.sales, {type: selected, value: Number(saleValue)}]
-            props.setSales(sales)
-            localStorage.setItem('Sales', JSON.stringify(sales))
+            const salesNewArray = [...sales, {type: selected, value: Number(saleValue)}]
+
+            setSales(salesNewArray)
+
+            localStorage.setItem('Sales', JSON.stringify(salesNewArray))
+
             setSaleValue('')
         }
         
@@ -45,22 +50,22 @@ export function AddSale(props: AddSaleProps) {
                 </span>
                 <div className="flex sm:flex-col items-start sm:justify-start justify-between w-full gap-11 ">
                     <SaleTypeButton 
-                        selected={selected} 
                         icon={'Money'} 
                         title={'Dinheiro'} 
+                        selected={selected} 
                         setSelected={setSelected}
                     /> 
                     <SaleTypeButton 
-                        selected={selected} 
                         icon={'CreditCard'} 
                         title={'Cartão'}
+                        selected={selected} 
                         setSelected={setSelected}
 
                     /> 
                     <SaleTypeButton 
-                        selected={selected}
                         icon={'Pix'} 
                         title={'Pix'}
+                        selected={selected}
                         setSelected={setSelected}
 
                      /> 
