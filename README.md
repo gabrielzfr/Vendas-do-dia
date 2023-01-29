@@ -1,5 +1,5 @@
 # Vendas do Dia
-![Project image](https://github.com/gabrielzfr/Vendas-de-Hoje/blob/main/vendas-de-hoje/public/Vendas%20do%20DIa.png?raw=true)
+![Project image](https://github.com/gabrielzfr/Vendas-de-Hoje/blob/main/vendas-do-dia/public/Vendas%20do%20DIa.png?raw=true)
 ##### Projeto Feito por GabrielzFr
 
 ## Aplicação feita em React com Typescript e [Vite](https://vitejs.dev/) com as Bibliotecas:
