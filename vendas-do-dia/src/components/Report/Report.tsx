@@ -44,18 +44,21 @@ export function Report(props: ReportProps) {
         const image = await fetch(ReportPrint)
         const blobImage = await image.blob()
         try {
+            try {
 
-            await navigator.clipboard.write([
+                await navigator.clipboard.write([
                 new ClipboardItem({
                     'image/png': blobImage 
                 })
-            ])
-        } catch {
+                ])
+            } finally  {
+            setReportErrorMessage('Imagem do relátorio copiado para área de transferência')
+            } 
+        } catch (err) {
             setReportErrorMessage('Ocorreu um erro a gerar o Relatorio. Tente novamente!')
-        }
-
-        setReportErrorMessage('Imagem do relátorio copiado para área de transferência')
-        
+            throw Error(String(err))
+        } 
+          
     }
 
     function CloseReport() {
