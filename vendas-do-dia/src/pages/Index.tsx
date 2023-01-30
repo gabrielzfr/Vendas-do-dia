@@ -6,7 +6,6 @@ import { Report } from "../components/Report/Report";
 export function Index() {
     const [showReport, setShowReport] = useState(false)
 
-
     return (
         <>
             {showReport ? <Report setShowReport={setShowReport} /> : '' }

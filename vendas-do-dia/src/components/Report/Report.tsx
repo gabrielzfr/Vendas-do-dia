@@ -13,6 +13,8 @@ interface ReportProps {
 export function Report(props: ReportProps) {
     const [takingPrint, isTakingPrint] = useState(false)
 
+    const [reportErrorMessage, setReportErrorMessage] = useState('')
+
     const {sales} = useContext(SalesContext)
 
     const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
@@ -27,11 +29,11 @@ export function Report(props: ReportProps) {
 
     async function takeReportPrint() {
         await isTakingPrint(true)
-        const canvas = await  html2canvas(document.querySelector('[data-report]')!, {
+        const canvas = await html2canvas(document.querySelector('[data-report]')!, {
             allowTaint: true,
             removeContainer: false
         })
-        const base64Image =  await canvas.toDataURL('image/png');
+        const base64Image = canvas.toDataURL('image/png');
         setTimeout(() => isTakingPrint(false), 1000)
 
         return base64Image
@@ -49,16 +51,21 @@ export function Report(props: ReportProps) {
                 })
             ])
         } catch {
-            throw Error('Não foi Possivel Realizar o Pritn tente novamente')
+            setReportErrorMessage('Ocorreu um erro a gerar o Relatorio. Tente novamente!')
         }
 
+        setReportErrorMessage('Imagem do relátorio copiado para área de transferência')
         
     }
 
+    function CloseReport() {
+        setReportErrorMessage('a')
+        props.setShowReport(false)
+    }
 
     return (
         <span className="fixed z-10 w-[100%] h-[100%] overflow-y-auto bg-black bg-opacity-60 flex justify-center sm:items-center" id="report">
-            <div className="sm:w-[32rem] sm:h-[52rem] w-full bg-blackBg text-center mm:p-4 flex flex-col gap-7" >
+            <div className="sm:w-[32rem] sm:h-[54rem] w-full bg-blackBg text-center mm:p-4 flex flex-col gap-6" >
                 <div className="flex flex-col gap-7 bg-blackBg rounded-none" data-report>
                     
                         <div className="flex justify-between items-center  w-full">
@@ -72,12 +79,12 @@ export function Report(props: ReportProps) {
                                 className={classNames("cursor-pointer hover:opacity-70 transition-opacity ", {
                                     'text-blackBg': takingPrint
                                 })}
-                                onClick={() => props.setShowReport(false)}
+                                onClick={CloseReport}
                             >
                                 <X  size={40} weight={'bold'}/>
                             </button>
                         </div>
-                    <div className="flex flex-col items-center gap-7 bg-blackBg rounded-none" >
+                    <div className="flex flex-col items-center gap-6 bg-blackBg rounded-none" >
                         <SaleItemReport saleType="Money" title="Dinheiro"
                         value={moneySalesTotal} />
                         <SaleItemReport saleType="CreditCard" title="Cartão" value={creditSalesTotal} />
@@ -91,6 +98,10 @@ export function Report(props: ReportProps) {
                 className="cursor-pointer w-[15rem] h-[4.8rem] bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity"
                 onClick={copyReportImage}
                 />
+                {reportErrorMessage == '' ? '' : 
+                <p><strong>
+                   {reportErrorMessage} 
+                </strong></p>}
             </div>
         </span>
     )
