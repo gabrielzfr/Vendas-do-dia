@@ -62,8 +62,8 @@ export function Report(props: ReportProps) {
     }
 
     return (
-        <span className="fixed z-10 w-[100%] h-[100%] overflow-y-auto bg-black bg-opacity-60 flex justify-center sm:items-center" id="report">
-            <div className="sm:w-[32rem] sm:h-[54rem] w-full bg-blackBg text-center mm:p-4 flex flex-col gap-6" >
+        <span className="fixed z-10 w-[100%]  bg-black bg-opacity-60 flex  h-full justify-center sm:items-center" id="report">
+            <div className="sm:w-[32rem] sm:h-[95%] w-full h-[100vh] bg-blackBg text-center mm:p-4 flex flex-col gap-6 overflow-y-scroll">
                 <div className="flex flex-col gap-7 bg-blackBg rounded-none" data-report>
                     
                         <div className="flex justify-between items-center  w-full">
@@ -93,7 +93,7 @@ export function Report(props: ReportProps) {
                 <input 
                 type="button" 
                 value="Copiar Relátorio" 
-                className="cursor-pointer w-[15rem] h-[4.8rem] bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity"
+                className="cursor-pointer w-[15rem]  bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity p-5"
                 onClick={copyReportImage}
                 />
                 {reportErrorMessage == '' ? '' : 
