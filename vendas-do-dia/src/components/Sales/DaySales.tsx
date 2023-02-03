@@ -14,7 +14,7 @@ export function DaySales(props: DaySalesProps) {
         <h1 className="sm:text-7xl text-5xl font-semibold text-center">
             Vendas do Dia
         </h1>
-        <article className="md:w-[48rem] h-[42rem] bg-grayBg sm:px-10 px-5 py-6 overflow-y-auto w-[95vw]">
+        <article className="md:w-[52rem] h-[42rem] bg-grayBg sm:px-10 px-5 py-6 overflow-y-auto w-[95vw]">
             <ul className="w-full flex sm:gap-8 gap-5 flex-wrap justify-center">
             {sales.map((sale) => {
                     return (
