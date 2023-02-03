@@ -10,13 +10,13 @@ interface DaySalesProps {
 export function DaySales(props: DaySalesProps) {
     const {sales, setSales} = useContext(SalesContext)
     
-    function deleteSale(index: number) {
+    function deleteSale(id: string) {
         const salesNewArray = [...sales]
-        salesNewArray.splice(index, 1)
+        const salesNewArrayFiltered = salesNewArray.filter(sale => sale.id != id)
 
-        setSales(salesNewArray)
+        setSales(salesNewArrayFiltered)
 
-        localStorage.setItem('Sales', JSON.stringify(salesNewArray))
+        localStorage.setItem('Sales', JSON.stringify(salesNewArrayFiltered))
     }
 
 
@@ -27,10 +27,10 @@ export function DaySales(props: DaySalesProps) {
         </h1>
         <article className="md:w-[48rem] h-[42rem] bg-grayBg sm:px-10 px-5 py-6 overflow-y-auto w-[95vw]">
             <ul className="w-full flex sm:gap-8 gap-5 flex-wrap justify-center">
-            {sales.map((sale, index) => {
+            {sales.map((sale) => {
                     return (
                        <Sale saleType={sale.type} value={sale.value}
-                       key={index} id={index}
+                       key={sale.id} id={sale.id}
 
                        deleteSale={deleteSale}
                        />

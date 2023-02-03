@@ -4,13 +4,13 @@ import { CreditCard, CurrencyCircleDollar, Money, X } from "phosphor-react"
 interface SaleProps {
     saleType: string
     value: number
-    id: number
-    deleteSale: (type: number) => void
+    id: string
+    deleteSale: (type: string) => void
 }
 export function Sale(props: SaleProps) {
     return (
         <li
-        className="w-[100%] bg-blackBg sm:h-28 h-26 sm:px-7 px-3 pr-2 flex  items-center justify-center sm:pr-2 gap-1 sm:gap-0" data-key={props.id}>
+        className="w-[100%] bg-blackBg sm:h-28 h-26 sm:px-7 px-3 pr-2 flex  items-center justify-center sm:pr-2 gap-1 sm:gap-0">
         {
         props.saleType == 'Money' ?
         <Money  className="text-aquaBlue sm:w-[120px] sm:h-[120px] w-[90px] h-[90px]" /> :

@@ -17,7 +17,8 @@ export function AddSale() {
         if (Number(saleValue) == 0 || saleValue == '') {
             alert('Digite uma venda válida')
         } else {
-            const salesNewArray = [...sales, {type: selected, value: Number(saleValue)}]
+            const salesNewArray = [...sales,
+             {type: selected, value: Number(saleValue), id: self.crypto.randomUUID()}]
 
             setSales(salesNewArray)
 

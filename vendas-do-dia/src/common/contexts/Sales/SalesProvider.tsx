@@ -8,6 +8,7 @@ interface SalesProviderProps {
 interface SalesContextProps {
     sales: SalesType
     setSales: React.Dispatch<React.SetStateAction<SalesType>>
+  
 }
 
 const localStorageSales = localStorage.getItem('Sales')
@@ -18,6 +19,7 @@ const initialValue = {
 }
 
 export const SalesContext = createContext<SalesContextProps>(initialValue)
+
 SalesContext.displayName = "Sales"
 
 
