@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
+import { useSalesContext } from "../../common/contexts/Sales/useSales";
 import { Sale } from "./Sale";
 
 interface DaySalesProps {
@@ -8,17 +7,7 @@ interface DaySalesProps {
 
 
 export function DaySales(props: DaySalesProps) {
-    const {sales, setSales} = useContext(SalesContext)
-    
-    function deleteSale(id: string) {
-        const salesNewArray = [...sales]
-        const salesNewArrayFiltered = salesNewArray.filter(sale => sale.id != id)
-
-        setSales(salesNewArrayFiltered)
-
-        localStorage.setItem('Sales', JSON.stringify(salesNewArrayFiltered))
-    }
-
+    const {sales} = useSalesContext()
 
     return (
         <section className="flex flex-col items-center gap-6">
@@ -31,8 +20,6 @@ export function DaySales(props: DaySalesProps) {
                     return (
                        <Sale saleType={sale.type} value={sale.value}
                        key={sale.id} id={sale.id}
-
-                       deleteSale={deleteSale}
                        />
                     )
                 })}

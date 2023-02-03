@@ -4,6 +4,7 @@ import { SaleItemReport } from "./SaleItemReport";
 import { useContext, useState } from "react";
 import classNames from "classnames";
 import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
+import { useSalesContext } from "../../common/contexts/Sales/useSales";
 
 interface ReportProps {
     setShowReport: (type: boolean) => void
@@ -15,15 +16,9 @@ export function Report(props: ReportProps) {
 
     const [reportErrorMessage, setReportErrorMessage] = useState('')
 
-    const {sales} = useContext(SalesContext)
+    const {creditSalesTotal, moneySalesTotal, pixSalesTotal, salesTotal } = useSalesContext()
 
-    const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
     
-    const creditSalesTotal = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
-    
-    const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
-
-    const salesTotal = [moneySalesTotal, creditSalesTotal, pixSalesTotal].reduce((acc, saleTotalItem) => acc + saleTotalItem, 0 )
 
     
 

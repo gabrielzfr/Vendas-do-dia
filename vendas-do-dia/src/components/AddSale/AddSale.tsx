@@ -1,33 +1,17 @@
 import { FormEvent, useContext, useState } from "react";
-import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
-import { SaleType } from "../../common/types/SaleType";
+import { useSalesContext } from "../../common/contexts/Sales/useSales";
 import { SaleTypeButton } from "./SaleTypeButton";
 
 
 export function AddSale() {
 
-    const {sales, setSales} = useContext(SalesContext)
-
-    const [selected, setSelected] = useState<SaleType>('Money')
+    const {AddNewSale} = useSalesContext()
 
     const [saleValue, setSaleValue] = useState('')
     
-    async function RegisterSale(e: FormEvent) {
-        e.preventDefault()
-        if (Number(saleValue) == 0 || saleValue == '') {
-            alert('Digite uma venda válida')
-        } else {
-            const salesNewArray = [...sales,
-             {type: selected, value: Number(saleValue), id: self.crypto.randomUUID()}]
-
-            setSales(salesNewArray)
-
-            localStorage.setItem('Sales', JSON.stringify(salesNewArray))
-
-            setSaleValue('')
-        }
-        
-        
+    function HandleAddSale(e: FormEvent) {
+        AddNewSale(saleValue, e)
+        setSaleValue('')
     }
 
     return (
@@ -44,38 +28,30 @@ export function AddSale() {
                         value={saleValue}
                         onChange={(e) => setSaleValue(e.target.value)}
                         type="number" 
-                        className=" h-full bg-transparent text-white w-full sm:text-start text-center placeholder:text-grayPlaceholde3r focus:outline-none "
+                        className=" h-full bg-transparent text-white w-full text-start placeholder:text-grayPlaceholde3r focus:outline-none "
                         placeholder="00,00" 
                         
                     />
                 </span>
                 <div className="flex sm:flex-col items-start sm:justify-start justify-between w-full gap-11 ">
                     <SaleTypeButton 
-                        icon={'Money'} 
+                        type={'Money'} 
                         title={'Dinheiro'} 
-                        selected={selected} 
-                        setSelected={setSelected}
                     /> 
                     <SaleTypeButton 
-                        icon={'CreditCard'} 
+                        type={'CreditCard'} 
                         title={'Cartão'}
-                        selected={selected} 
-                        setSelected={setSelected}
-
                     /> 
                     <SaleTypeButton 
-                        icon={'Pix'} 
+                        type={'Pix'} 
                         title={'Pix'}
-                        selected={selected}
-                        setSelected={setSelected}
-
                      /> 
                 </div>
                 <input 
                 type="submit" value="Adicionar Venda"
                 className="w-full sm:h-[4.5rem] h-[6rem] bg-aquaBlue sm:text-2xl text-4xl cursor-pointer font-bold hover:opacity-80 transition-opacity
                     "
-                onClick={RegisterSale}
+                onClick={HandleAddSale}
                     />
             </form>
         </aside>
