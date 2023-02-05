@@ -1,4 +1,4 @@
-import { FormEvent, useContext } from "react"
+import { FormEvent, useContext, useMemo } from "react"
 import { SalesContext } from "./SalesProvider"
 
 export const useSalesContext = () => {
@@ -27,13 +27,13 @@ export const useSalesContext = () => {
         }    
     }
     
-    const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
+    const moneySalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0), [sales])
     
-    const creditSalesTotal = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
+    const creditSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0), [sales])
     
-    const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
+    const pixSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0), [sales])
 
-    const salesTotal = [moneySalesTotal, creditSalesTotal, pixSalesTotal].reduce((acc, saleTotalItem) => acc + saleTotalItem, 0 )
+    const salesTotal = useMemo(() => [moneySalesTotal, creditSalesTotal, pixSalesTotal].reduce((acc, saleTotalItem) => acc + saleTotalItem, 0 ), [moneySalesTotal, creditSalesTotal, pixSalesTotal])
 
     return {
         sales,
