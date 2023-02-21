@@ -42,10 +42,7 @@ export function ShowComponentsProvider({children}: ShowComponentsProviderProps) 
         setShowAddSales(true)
       } 
       else {
-        if (showSales) {
-
-          setShowSales(true)
-        }
+        setShowSales(true)
         setShowAddSales(false)
       }
     }
