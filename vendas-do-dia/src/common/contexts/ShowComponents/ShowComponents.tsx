@@ -40,11 +40,12 @@ export function ShowComponentsProvider({children}: ShowComponentsProviderProps) 
       if (windowWidth > 590) {
         setShowSales(true)
         setShowAddSales(true)
-      } else if (windowWidth < 590 && showAddSales) {
-        setShowSales(false)
       } 
       else {
-        setShowSales(true)
+        if (showSales) {
+
+          setShowSales(true)
+        }
         setShowAddSales(false)
       }
     }

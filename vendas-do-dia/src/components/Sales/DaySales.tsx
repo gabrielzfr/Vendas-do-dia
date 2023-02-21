@@ -1,13 +1,11 @@
 import { useSalesContext } from "../../common/contexts/Sales/useSales";
+import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
 import { Sale } from "./Sale";
 
-interface DaySalesProps {
-    setShowReport: (type: boolean) => void
-}
 
-
-export function DaySales(props: DaySalesProps) {
+export function DaySales() {
     const {sales} = useSalesContext()
+    const {setShowReport} = useShowComponentsContext()
 
     return (
         <section className="flex flex-col items-center gap-6 ">
@@ -29,7 +27,7 @@ export function DaySales(props: DaySalesProps) {
             type="button" 
             value="Gerar Relátorio"
             className="bg-aquaBlue sm:w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity w-[95vw] hidden sm:block"
-            onClick={() => props.setShowReport(true)}
+            onClick={() => setShowReport(true)}
             />
     </section>
     )

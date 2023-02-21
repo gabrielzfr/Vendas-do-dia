@@ -5,18 +5,17 @@ import { useContext, useState } from "react";
 import classNames from "classnames";
 import { SalesContext } from "../../common/contexts/Sales/SalesProvider";
 import { useSalesContext } from "../../common/contexts/Sales/useSales";
-
-interface ReportProps {
-    setShowReport: (type: boolean) => void
-}
+import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
 
 
-export function Report(props: ReportProps) {
+
+export function Report() {
     const [takingPrint, isTakingPrint] = useState(false)
 
     const [reportErrorMessage, setReportErrorMessage] = useState('')
 
     const {creditSalesTotal, moneySalesTotal, pixSalesTotal, salesTotal } = useSalesContext()
+    const {setShowReport} = useShowComponentsContext()
 
     
 
@@ -58,7 +57,7 @@ export function Report(props: ReportProps) {
 
     function CloseReport() {
         setReportErrorMessage('a')
-        props.setShowReport(false)
+        setShowReport(false)
     }
 
     return (
