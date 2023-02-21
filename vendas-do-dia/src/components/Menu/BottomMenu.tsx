@@ -1,6 +1,7 @@
 import { ListPlus, Money, Scroll } from "phosphor-react";
 import { useContext } from "react";
 import { ShowComponentsContext } from "../../common/contexts/ShowComponents/ShowComponents";
+import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
 import { NavItems } from "../../common/types/NavItems";
 import { MenuItem } from "./MenuItem";
 
@@ -9,7 +10,7 @@ import { MenuItem } from "./MenuItem";
 
 
 export function BottomMenu() {
-  const {showSales, showAddSales, showReport} = useContext(ShowComponentsContext)
+  const {showSales, showAddSales, showReport} = useShowComponentsContext()
 
   return (
     <nav className="w-full bottom-0 fixed bg-blackBg rounded-none h-20 px-6 sm:hidden z-40">

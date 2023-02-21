@@ -15,7 +15,7 @@ export function AddSale() {
   return (
     <aside className="flex items-center flex-col justify-center gap-10 sm:mb-5 sm:w-[21.5rem] w-[75%]">
       <h1 className="font-semibold text-[2.6rem] text-center">
-        Adicionar a Lista
+        Adicionar Venda
       </h1>
       <form action="submit" className="flex flex-col items-center gap-10">
         <span className=" w-full sm:h-[7.25rem] h-[9rem] bg-grayBg px-3 sm:text-7xl text-[5rem] justify-center flex items-center gap-5">

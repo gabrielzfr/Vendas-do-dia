@@ -16,9 +16,6 @@ interface MenuItemProps {
 export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProps) {
   const {setShows} = useShowComponentsContext()
   
-
-
-
   return (
         <li>
           <label className={classNames("text-zinc flex flex-col items-center mm:text-xl sm:xl: font-semibold", 
