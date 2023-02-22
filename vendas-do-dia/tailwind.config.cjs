@@ -14,7 +14,8 @@ module.exports = {
         'mm': '375px',
         'sm': '590px',
         'md': '790px',
-        'qq' : '1300px'
+        'qq' : '1300px',
+
     }
     },
   },

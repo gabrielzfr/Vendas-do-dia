@@ -21,7 +21,7 @@ export function Sale(props: SaleProps) {
             <CurrencyCircleDollar className="text-aquaBlue sm:w-[120px] sm:h-[120px] w-[90px] h-[90px]" />
         }
         
-        <div className="text-center w-[calc(100%-101px)]">
+        <div className="text-center w-[calc(100%-101px)] overflow-x-auto ">
             <p className=" sm:text-[5.2rem] mm:text-[3.5rem]  text-[3rem]">{props.value.toLocaleString('pt-br', {minimumFractionDigits: 2})}</p>
         </div>
         <button onClick={() => deleteSale(props.id)}>
