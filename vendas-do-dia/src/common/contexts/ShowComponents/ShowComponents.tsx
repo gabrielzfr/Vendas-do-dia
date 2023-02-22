@@ -37,11 +37,11 @@ export function ShowComponentsProvider({children}: ShowComponentsProviderProps) 
     function updatePageWidth() {
       windowWidth = window.innerWidth;
       if (windowWidth < 590 ) {
-        setShowSales(true)
-        setShowAddSales(false)
+        setShowSales(false)
+        setShowAddSales(true)
       } 
       else {
-        setShowSales(false)
+        setShowSales(true)
         setShowAddSales(true)
       }
     }
