@@ -35,15 +35,14 @@ export function ShowComponentsProvider({children}: ShowComponentsProviderProps) 
     const [showReport, setShowReport] = useState(initialValue.showReport);
     
     function updatePageWidth() {
-      windowWidth = window.innerWidth;
-      if (windowWidth < 590 ) {
-        setShowSales(false)
-        setShowAddSales(true)
-      } 
-      else {
-        setShowSales(true)
-        setShowAddSales(true)
-      }
+
+        windowWidth = window.innerWidth;
+        if (windowWidth > 590 ) {
+          setShowSales(true)
+          setShowAddSales(true)
+        } 
+
+      
     }
   
     useEffect(() => {
