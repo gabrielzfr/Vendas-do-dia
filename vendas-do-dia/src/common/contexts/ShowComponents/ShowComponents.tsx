@@ -33,17 +33,16 @@ export function ShowComponentsProvider({children}: ShowComponentsProviderProps) 
     const [showSales, setShowSales] = useState(initialValue.showSales);
     const [showAddSales, setShowAddSales] = useState(initialValue.showAddSales);
     const [showReport, setShowReport] = useState(initialValue.showReport);
-
     
     function updatePageWidth() {
       windowWidth = window.innerWidth;
-      if (windowWidth > 590) {
+      if (windowWidth < 590 ) {
         setShowSales(true)
-        setShowAddSales(true)
+        setShowAddSales(false)
       } 
       else {
         setShowSales(true)
-        setShowAddSales(false)
+        setShowAddSales(true)
       }
     }
   

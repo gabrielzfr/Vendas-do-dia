@@ -1,13 +1,6 @@
 import { ListPlus, Money, Scroll } from "phosphor-react";
-import { useContext } from "react";
-import { ShowComponentsContext } from "../../common/contexts/ShowComponents/ShowComponents";
 import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
-import { NavItems } from "../../common/types/NavItems";
 import { MenuItem } from "./MenuItem";
-
-
-
-
 
 export function BottomMenu() {
   const {showSales, showAddSales, showReport} = useShowComponentsContext()

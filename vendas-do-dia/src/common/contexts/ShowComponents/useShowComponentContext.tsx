@@ -28,9 +28,7 @@ export const useShowComponentsContext = () => {
 
     return {
         showSales,
-        setShowSales,
         showAddSales,
-        setShowAddSales,
         showReport,
         setShowReport,
         setShows
