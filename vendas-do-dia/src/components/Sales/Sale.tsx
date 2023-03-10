@@ -1,5 +1,5 @@
 import { CreditCard, CurrencyCircleDollar, Money, X } from "phosphor-react"
-import { useSalesContext } from "../../common/contexts/Sales/useSales"
+import { useDeleteSale } from "../../common/state/hooks/useDeleteSales"
 
 
 interface SaleProps {
@@ -8,7 +8,7 @@ interface SaleProps {
     id: string
 }
 export function Sale(props: SaleProps) {
-    const {deleteSale} = useSalesContext()
+    const deleteSale = useDeleteSale()
 
     return (
         <li

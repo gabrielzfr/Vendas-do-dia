@@ -1,4 +1,3 @@
-export type NavItems = 
- 'sales' | 'addSales'| 'report'
+export type NavItems = 'sales' | 'addSales'| 'report'
 
   

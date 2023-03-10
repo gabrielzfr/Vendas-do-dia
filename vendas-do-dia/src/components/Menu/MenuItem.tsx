@@ -1,8 +1,6 @@
 import classNames from "classnames";
 import { IconProps} from "phosphor-react";
-import { useContext } from "react";
-import { ShowComponentsContext } from "../../common/contexts/ShowComponents/ShowComponents";
-import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
+import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 import { NavItems } from "../../common/types/NavItems";
 
 
@@ -14,7 +12,21 @@ interface MenuItemProps {
 }
 
 export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProps) {
-  const {setShows} = useShowComponentsContext()
+  const setShows = useSetShowComponents()
+
+  function handleSetShowComponent() {
+    setShows({
+      SalesComponent: {
+        isShow: buttonValue == 'sales'
+      },
+      AddSalesComponent: {
+        isShow: buttonValue == 'addSales'
+      },
+      ReportComponent: {
+        isShow: buttonValue == 'report'
+      },
+    })
+  }
   
   return (
         <li>
@@ -23,7 +35,7 @@ export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProp
               'text-aquaBlue': showComponent
           }
           )}>
-            <button onClick={() => setShows(buttonValue)}>
+            <button onClick={handleSetShowComponent}>
               {icon}
             </button>
               {title}

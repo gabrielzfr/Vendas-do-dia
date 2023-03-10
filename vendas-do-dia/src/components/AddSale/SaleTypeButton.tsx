@@ -1,7 +1,7 @@
 import { CreditCard, Money, CurrencyCircleDollar } from "phosphor-react"
 import classNames from 'classnames'
 import { SaleType } from "../../common/types/SaleType"
-import { useSalesContext } from "../../common/contexts/Sales/useSales"
+import { useSelectedSaleType } from "../../common/state/hooks/useSelectedSaleTypeValue"
 
  
 interface SaleTypeButtonProps {
@@ -10,12 +10,12 @@ interface SaleTypeButtonProps {
 }
 
 export function SaleTypeButton(props:SaleTypeButtonProps) {
-    const {selectedSale, setSelectedSale} =  useSalesContext()
+    const {selectedSaleType, setSelectedSaleType} = useSelectedSaleType()
 
-    const isSelected = props.type === selectedSale
+    const isSelected = props.type === selectedSaleType
     
     return (
-        <button type="button" onClick={() => setSelectedSale(props.type)}>
+        <button type="button" onClick={() => setSelectedSaleType(props.type)}>
             <div className={classNames("flex items-center gap-3 transition-colors delay-75 ", {
                 'text-aquaBlue': isSelected 
             })}>

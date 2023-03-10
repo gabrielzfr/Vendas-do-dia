@@ -1,11 +1,11 @@
-import { useSalesContext } from "../../common/contexts/Sales/useSales";
-import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
+import { useSalesValue } from "../../common/state/hooks/useSalesValue";
+import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 import { Sale } from "./Sale";
 
 
 export function DaySales() {
-    const {sales} = useSalesContext()
-    const {setShowReport} = useShowComponentsContext()
+    const sales = useSalesValue()
+    const setShowReport = useSetShowComponents()
 
     return (
         <section className="flex flex-col items-center gap-6 ">
@@ -14,7 +14,7 @@ export function DaySales() {
         </h1>
         <article className="md:w-[52rem] sm:h-[42rem] h-[75vh] bg-grayBg sm:px-10 px-5 py-6 overflow-y-auto w-[95vw]">
             <ul className="w-full flex sm:gap-8 gap-5 flex-wrap justify-center">
-            {sales.map((sale) => {
+            {sales.map(sale => {
                     return (
                        <Sale saleType={sale.type} value={sale.value}
                        key={sale.id} id={sale.id}
@@ -27,7 +27,14 @@ export function DaySales() {
             type="button" 
             value="Gerar Relátorio"
             className="bg-aquaBlue sm:w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity w-[95vw] hidden sm:block"
-            onClick={() => setShowReport(true)}
+            onClick={
+                () => setShowReport(shows => ({
+                    ...shows,
+                    ReportComponent: {
+                        isShow: true
+                    }
+                }))
+            }
             />
     </section>
     )
