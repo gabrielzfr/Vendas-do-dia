@@ -9,6 +9,7 @@
 - ### [Html2Canvas](https://html2canvas.hertzen.com/) 
 - ### [Phosphor Icons](https://phosphoricons.com/) 
 - ### [Classnames](https://jedwatson.github.io/classnames/)  
+- ### [Recoil](https://recoiljs.org/)  
 
 ## Deploy da Aplicação no Vercel:
 
