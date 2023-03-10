@@ -1,9 +1,9 @@
 import { FormEvent, useContext, useState } from "react";
-import { useSalesContext } from "../../common/contexts/Sales/useSales";
+import { useAddSale } from "../../common/state/hooks/useAddSale";
 import { SaleTypeButton } from "./SaleTypeButton";
 
 export function AddSale() {
-  const { AddNewSale } = useSalesContext();
+  const  AddNewSale = useAddSale()
 
   const [saleValue, setSaleValue] = useState("");
 

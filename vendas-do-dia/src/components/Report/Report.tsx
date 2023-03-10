@@ -3,18 +3,17 @@ import html2canvas from "html2canvas";
 import { SaleItemReport } from "./SaleItemReport";
 import { useState } from "react";
 import classNames from "classnames";
-import { useSalesContext } from "../../common/contexts/Sales/useSales";
-import { useShowComponentsContext } from "../../common/contexts/ShowComponents/useShowComponentContext";
+import { useTotalSalesSelector } from "../../common/state/selectors/hooks/useTotalSalesSelector";
+import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 
 export function Report() {
   const [takingPrint, isTakingPrint] = useState(false);
 
   const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
 
-  const { creditSalesTotal, moneySalesTotal, pixSalesTotal, salesTotal } =
-    useSalesContext();
+  const { creditSalesTotal, moneySalesTotal, pixSalesTotal, totalSales } = useTotalSalesSelector()
 
-  const { setShowReport } = useShowComponentsContext();
+  const  setShowReport  = useSetShowComponents()
 
   async function takeReportPrint() {
     await isTakingPrint(true);
@@ -48,6 +47,15 @@ export function Report() {
     }
   }
 
+  function CloseReportComponent() {
+    setShowReport(shows => ({
+      ...shows,
+      ReportComponent: {
+        isShow: false
+      }
+    }))
+  }
+
   return (
     <span
       className="fixed z-10 w-[100%]  bg-black bg-opacity-60 flex  h-full justify-center sm:items-center"
@@ -67,7 +75,7 @@ export function Report() {
                       "text-blackBg": takingPrint,
                     }
                   )}
-                  onClick={() => setShowReport(false)}
+                  onClick={CloseReportComponent}
                 >
                   <X size={40} weight={"bold"} />
                 </button>
@@ -91,7 +99,7 @@ export function Report() {
                 <SaleItemReport
                   saleType="Total"
                   title="Total"
-                  value={salesTotal}
+                  value={totalSales}
                 />
               </div>
             </div>
@@ -107,7 +115,7 @@ export function Report() {
         ) : copyImageError ? (
             <>
                 <span className="text-end">
-                    <button onClick={() => setShowReport(false)} className="sm:inline hidden">
+                    <button onClick={CloseReportComponent} className="sm:inline hidden">
                         <X size={40} weight={"bold"}/>
                     </button>
                 </span>
@@ -133,7 +141,7 @@ export function Report() {
         ) : (
             <>
                 <span className="text-end">
-                    <button onClick={() => setShowReport(false)} className="sm:inline hidden">
+                    <button onClick={CloseReportComponent} className="sm:inline hidden">
                         <X size={40} weight={"bold"}/>
                     </button>
                 </span>
