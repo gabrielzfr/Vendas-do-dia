@@ -28,14 +28,7 @@ export function Report() {
   }
 
   async function copyReportImage() {
-    const ReportPrint = await takeReportPrint();
-    const image = await fetch(ReportPrint);
-    const blobImage = await image.blob();
-        await navigator.clipboard.write([
-          new ClipboardItem({
-            "image/png": blobImage,
-          }),
-        ]);
+   console.log('test')
   }
 
   function CloseReportComponent() {
