@@ -1,4 +1,16 @@
-import { ArrowUUpLeft, CheckCircle, CircleNotch, ClipboardText, X, XCircle } from "phosphor-react";
+import {
+  ArrowUUpLeft,
+  CheckCircle,
+  CircleNotch,
+  ClipboardText,
+  CreditCard,
+  CurrencyCircleDollar,
+  Money,
+  Star,
+  Wallet,
+  X,
+  XCircle,
+} from "phosphor-react";
 import html2canvas from "html2canvas";
 import { SaleItemReport } from "./SaleItemReport";
 import { useState } from "react";
@@ -11,9 +23,15 @@ export function Report() {
 
   const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
 
-  const { creditSalesTotal, moneySalesTotal, pixSalesTotal, totalSales } = useTotalSalesSelector()
+  const {
+    totalCreditSales,
+    totalMoneySales,
+    totalPixSales,
+    totalSales,
+    totalCashdesk,
+  } = useTotalSalesSelector();
 
-  const  setShowReport  = useSetShowComponents()
+  const setShowReport = useSetShowComponents();
 
   async function takeReportPrint() {
     await isTakingPrint(true);
@@ -48,12 +66,12 @@ export function Report() {
   }
 
   function CloseReportComponent() {
-    setShowReport(shows => ({
+    setShowReport((shows) => ({
       ...shows,
       ReportComponent: {
-        isShow: false
-      }
-    }))
+        isShow: false,
+      },
+    }));
   }
 
   return (
@@ -64,7 +82,10 @@ export function Report() {
       <div className="sm:w-[32rem] sm:h-[90%] w-full h-[calc(100vh-5rem)] bg-blackBg text-center mm:p-5 flex flex-col gap-6 overflow-y-scroll ">
         {copyImageError == null ? (
           <>
-            <div className="flex flex-col gap-7 bg-blackBg rounded-none" data-report>
+            <div
+              className="flex flex-col gap-7 bg-blackBg rounded-none"
+              data-report
+            >
               <div className="flex sm:justify-between justify-center items-center w-full text-center">
                 <span className="w-[40px] sm:block hidden"></span>
                 <h1 className="text-4xl font-bold">Relátorio</h1>
@@ -82,24 +103,29 @@ export function Report() {
               </div>
               <div className="flex flex-col items-center gap-6 bg-blackBg rounded-none">
                 <SaleItemReport
-                  saleType="Money"
+                  icon={<Money size={65} />}
                   title="Dinheiro"
-                  value={moneySalesTotal}
+                  value={totalMoneySales}
                 />
                 <SaleItemReport
-                  saleType="CreditCard"
+                  icon={<CreditCard size={65} />}
                   title="Cartão"
-                  value={creditSalesTotal}
+                  value={totalCreditSales}
                 />
                 <SaleItemReport
-                  saleType="Pix"
+                  icon={<CurrencyCircleDollar size={55} />}
                   title="Pix"
-                  value={pixSalesTotal}
+                  value={totalPixSales}
                 />
                 <SaleItemReport
-                  saleType="Total"
+                  icon={<Star size={45} weight={"fill"} />}
                   title="Total"
                   value={totalSales}
+                />
+                <SaleItemReport
+                  icon={<Wallet size={50} />}
+                  title="Caixa"
+                  value={totalCashdesk}
                 />
               </div>
             </div>
@@ -109,69 +135,82 @@ export function Report() {
               disabled={takingPrint}
               onClick={copyReportImage}
             >
-                {takingPrint ? <CircleNotch className="animate-spin" size={34} /> : 'Copiar Relátorio'}
+              {takingPrint ? (
+                <CircleNotch className="animate-spin" size={34} />
+              ) : (
+                "Copiar Relátorio"
+              )}
             </button>
           </>
         ) : copyImageError ? (
-            <>
-                <span className="text-end">
-                    <button onClick={CloseReportComponent} className="sm:inline hidden">
-                        <X size={40} weight={"bold"}/>
-                    </button>
-                </span>
-                <div className="flex flex-col items-center gap-12 h-full justify-center pb-[5rem]">
-                    <span className="flex flex-col items-center">
-                        <XCircle className="text-red-500 sm:text-[18rem] text-[15rem]"/>
-                        <h1 className="text-5xl">
-                            Ocorreu um Erro!
-                        </h1>
-                    </span>
-                    <p className="text-xl">
-                        Ocorreu um erro ao gerar seu Relátorio. <br /> Por favor Tente novamente!
-                    </p>
-                    <button 
-                        className="flex items-center text-4xl border-red-500 border text-red-500 p-3"
-                        onClick={() => handleCopyImageError(null)}
-                    >
-                        <ArrowUUpLeft size={40} />
-                        Voltar
-                    </button>
-                </div>
-            </>
+          <>
+            <span className="text-end">
+              <button
+                onClick={CloseReportComponent}
+                className="sm:inline hidden"
+              >
+                <X size={40} weight={"bold"} />
+              </button>
+            </span>
+            <div className="flex flex-col items-center gap-12 h-full justify-center pb-[5rem]">
+              <span className="flex flex-col items-center">
+                <XCircle className="text-red-500 sm:text-[18rem] text-[15rem]" />
+                <h1 className="text-5xl">Ocorreu um Erro!</h1>
+              </span>
+              <p className="text-xl">
+                Ocorreu um erro ao gerar seu Relátorio. <br /> Por favor Tente
+                novamente!
+              </p>
+              <button
+                className="flex items-center text-4xl border-red-500 border text-red-500 p-3"
+                onClick={() => handleCopyImageError(null)}
+              >
+                <ArrowUUpLeft size={40} />
+                Voltar
+              </button>
+            </div>
+          </>
         ) : (
-            <>
-                <span className="text-end">
-                    <button onClick={CloseReportComponent} className="sm:inline hidden">
-                        <X size={40} weight={"bold"}/>
-                    </button>
-                </span>
-                <div className="flex flex-col items-center sm:gap-12 gap-8 h-full  justify-center sm:pb-[5rem]">
-                <span className="flex flex-col items-center">
-                    <CheckCircle className="text-green-500 sm:text-[18rem] text-[15rem]"/>
-                    <h1 className="text-5xl">
-                        Tudo Certo!
-                    </h1>
-                </span>
-                <span className="flex flex-col gap-4">
-                    <p className="text-xl">
-                        Uma imagem do relátorio foi copiada para sua Aréa de Transferência.
-                    </p>
-                    <p className="text-xl">
-                        Basta Apenas <span className="inline-flex items-center align-bottom
-                        "><ClipboardText className=""/> <strong>Colar</strong> </span> para Anexá-la.
-                    </p>
-                </span>
-                <button 
-                    className="flex items-center text-4xl border-green-500 border text-green-500 p-3"
-                    onClick={() => handleCopyImageError(null)}
-                >
-                    <ArrowUUpLeft size={40} />
-                    Voltar
-                </button>
-                </div>
-            </>
+          <>
+            <span className="text-end">
+              <button
+                onClick={CloseReportComponent}
+                className="sm:inline hidden"
+              >
+                <X size={40} weight={"bold"} />
+              </button>
+            </span>
+            <div className="flex flex-col items-center sm:gap-12 gap-8 h-full  justify-center sm:pb-[5rem]">
+              <span className="flex flex-col items-center">
+                <CheckCircle className="text-green-500 sm:text-[18rem] text-[15rem]" />
+                <h1 className="text-5xl">Tudo Certo!</h1>
+              </span>
+              <span className="flex flex-col gap-4">
+                <p className="text-xl">
+                  Uma imagem do relátorio foi copiada para sua Aréa de
+                  Transferência.
+                </p>
+                <p className="text-xl">
+                  Basta Apenas{" "}
+                  <span
+                    className="inline-flex items-center align-bottom
+                        "
+                  >
+                    <ClipboardText className="" /> <strong>Colar</strong>{" "}
+                  </span>{" "}
+                  para Anexá-la.
+                </p>
+              </span>
+              <button
+                className="flex items-center text-4xl border-green-500 border text-green-500 p-3"
+                onClick={() => handleCopyImageError(null)}
+              >
+                <ArrowUUpLeft size={40} />
+                Voltar
+              </button>
+            </div>
+          </>
         )}
-        
       </div>
     </span>
   );

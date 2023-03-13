@@ -1,27 +1,16 @@
-import { CreditCard, CurrencyCircleDollar, Money, Star } from "phosphor-react"
+import { CreditCard, CurrencyCircleDollar, IconProps, Money, Star } from "phosphor-react"
 import { SaleType } from "../../common/types/SaleType"
 
 interface SaleItemReportProps {
     title: string
-    saleType: SaleType | 'Total'
+    icon: React.ReactElement<React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>>
     value: number
 }
 export function SaleItemReport(props: SaleItemReportProps) {
     return (
         <div className="w-[15rem] h-[8.5rem] bg-grayBg flex flex-col justify-start gap-1 pt-4">
              <span className="flex items-center justify-center gap-2 text-aquaBlue h-[2.5rem]">
-                {
-                    props.saleType == 'Money' ?
-                    <Money size={65}/> :
-                    props.saleType == 'CreditCard' ?
-                    <CreditCard size={65}/> :
-                    props.saleType == 'Pix' ?
-                    <CurrencyCircleDollar size={55}/> :
-                    <Star size={45} weight={'fill'} />
-
-
-                }
-                
+                {props.icon}
                 <h2 className="text-[1.625rem] font-semibold flex">
                     {props.title}
                 </h2>
