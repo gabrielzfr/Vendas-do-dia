@@ -31,20 +31,11 @@ export function Report() {
     const ReportPrint = await takeReportPrint();
     const image = await fetch(ReportPrint);
     const blobImage = await image.blob();
-    try {
-      try {
         await navigator.clipboard.write([
           new ClipboardItem({
             "image/png": blobImage,
           }),
         ]);
-      } finally {
-        handleCopyImageError(false);
-      }
-    } catch (err) {
-      handleCopyImageError(true);
-      throw Error(String(err));
-    }
   }
 
   function CloseReportComponent() {
