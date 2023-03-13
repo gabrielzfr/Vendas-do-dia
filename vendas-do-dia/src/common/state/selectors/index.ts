@@ -13,7 +13,7 @@ export const totalSalesState = selector({
     
         const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
 
-        const totalSales = useMemo(() => moneySalesTotal + creditSalesTotal + pixSalesTotal, [moneySalesTotal, creditSalesTotal, pixSalesTotal])
+        const totalSales = moneySalesTotal + creditSalesTotal + pixSalesTotal
 
         return {
             moneySalesTotal,
