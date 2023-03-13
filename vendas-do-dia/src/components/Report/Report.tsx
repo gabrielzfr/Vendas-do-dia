@@ -11,7 +11,7 @@ export function Report() {
 
   const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
 
- 
+  const { creditSalesTotal, moneySalesTotal, pixSalesTotal, totalSales } = useTotalSalesSelector()
 
   const  setShowReport  = useSetShowComponents()
 
@@ -84,22 +84,22 @@ export function Report() {
                 <SaleItemReport
                   saleType="Money"
                   title="Dinheiro"
-                  value={1}
+                  value={moneySalesTotal}
                 />
                 <SaleItemReport
                   saleType="CreditCard"
                   title="Cartão"
-                  value={1}
+                  value={creditSalesTotal}
                 />
                 <SaleItemReport
                   saleType="Pix"
                   title="Pix"
-                  value={1}
+                  value={pixSalesTotal}
                 />
                 <SaleItemReport
                   saleType="Total"
                   title="Total"
-                  value={1}
+                  value={totalSales}
                 />
               </div>
             </div>
