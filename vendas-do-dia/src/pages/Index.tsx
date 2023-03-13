@@ -2,14 +2,14 @@ import { AddSale } from "../components/AddSale/AddSale";
 import { DaySales } from "../components/Sales/DaySales";
 import { Report } from "../components/Report/Report";
 import { BottomMenu } from "../components/Menu/BottomMenu";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { showComponentsState } from "../common/state/atom";
 import { useEffect } from "react";
+import { useShowComponentsValue } from "../common/state/hooks/useShowComponentsValue";
+import { useSetShowComponents } from "../common/state/hooks/useSetShowComponents";
 
 export function Index() {
     let windowWidth = window.innerWidth
-    const showComponents = useRecoilValue(showComponentsState)
-    const setShows = useSetRecoilState(showComponentsState)
+    const showComponents = useShowComponentsValue()
+    const setShows = useSetShowComponents()
     function updatePageWidth() {
 
         windowWidth = window.innerWidth;
