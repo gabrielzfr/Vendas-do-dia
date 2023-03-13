@@ -9,7 +9,7 @@ import { useSetShowComponents } from "../../common/state/hooks/useSetShowCompone
 export function Report() {
   const [takingPrint, isTakingPrint] = useState(false);
 
-  const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
+  const [copyImageError, handleCopyImageError] = useState<null | boolean>(false);
 
   const { creditSalesTotal, moneySalesTotal, pixSalesTotal, totalSales } = useTotalSalesSelector()
 
