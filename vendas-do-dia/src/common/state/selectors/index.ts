@@ -7,11 +7,11 @@ export const totalSalesState = selector({
     get: ({get}) => {
         const sales = get(salesState)
 
-        const moneySalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0), [sales])
+        const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
     
-        const creditSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0), [sales])
+        const creditSalesTotal = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
     
-        const pixSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0), [sales])
+        const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
 
         const totalSales = useMemo(() => moneySalesTotal + creditSalesTotal + pixSalesTotal, [moneySalesTotal, creditSalesTotal, pixSalesTotal])
 
@@ -24,15 +24,3 @@ export const totalSalesState = selector({
 
     }
 })
-
-/*
-
-    const moneySalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0), [sales])
-    
-    const creditSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0), [sales])
-    
-    const pixSalesTotal = useMemo(() => sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0), [sales])
-
-    const salesTotal = useMemo(() => [moneySalesTotal, creditSalesTotal, pixSalesTotal].reduce((acc, saleTotalItem) => acc + saleTotalItem, 0 ), [moneySalesTotal, creditSalesTotal, pixSalesTotal])
-
-*/ 
