@@ -109,7 +109,7 @@ export function Report() {
               disabled={takingPrint}
               onClick={copyReportImage}
             >
-                {takingPrint ? <CircleNotch className="animate-spin" size={34} /> : 'Copiar Relátorio'}
+                Copiar Relátorio
             </button>
           </>
         ) : copyImageError ? (
