@@ -11,9 +11,8 @@ export function Index() {
     const showComponents = useShowComponentsValue()
     const setShows = useSetShowComponents()
     function updatePageWidth() {
-
         windowWidth = window.innerWidth;
-        if (windowWidth > 590 ) {
+        if (windowWidth < 590 ) {
             setShows(shows => ({
                 ...shows,
                 SalesComponent: {
