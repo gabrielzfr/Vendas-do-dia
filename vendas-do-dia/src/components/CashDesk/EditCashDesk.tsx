@@ -1,7 +1,7 @@
-import { ArrowUUpLeft, Pencil, Wallet, X } from "phosphor-react";
+import { ArrowUUpLeft, Wallet, X } from "phosphor-react";
 import { useState } from "react";
 import { useRemoveCashdeskValue } from "../../common/state/hooks/useRemoveCashdeskValue";
-import { useSetCashdeskValue } from "../../common/state/hooks/useSetCashDeskValue";
+import { useSetCashdeskValue } from "../../../src/common/state/hooks/useSetCashdeskValue";
 import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 
 interface EditCashDeskProps {
