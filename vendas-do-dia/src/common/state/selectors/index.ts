@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { selector } from "recoil";
-import { salesState } from "../atom";
+import { CashDeskState, salesState } from "../atom";
 
 export const totalSalesState = selector({
     key: "totalState",
     get: ({get}) => {
         const sales = get(salesState)
+        const cashdeskValue = get(CashDeskState)
 
         const totalMoneySales = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
     
@@ -15,7 +16,7 @@ export const totalSalesState = selector({
 
         const totalSales = totalMoneySales + totalCreditSales + totalPixSales
 
-        const totalCashdesk = totalMoneySales + 50
+        const totalCashdesk = cashdeskValue
 
         return {
             totalMoneySales,

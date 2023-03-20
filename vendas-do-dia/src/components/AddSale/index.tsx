@@ -1,7 +1,7 @@
+import { CreditCard, CurrencyCircleDollar, Money } from "phosphor-react";
 import { FormEvent, useContext, useState } from "react";
 import { useAddSale } from "../../common/state/hooks/useAddSale";
-import { SaleTypeButton } from "./SaleTypeButton";
-
+import SaleTypeButton from "../SaleTypeButton";
 export function AddSale() {
   const  AddNewSale = useAddSale()
 
@@ -30,9 +30,9 @@ export function AddSale() {
           />
         </span>
         <div className="flex sm:flex-col items-start sm:justify-start justify-between w-full gap-11 ">
-          <SaleTypeButton type={"Money"} title={"Dinheiro"} />
-          <SaleTypeButton type={"CreditCard"} title={"Cartão"} />
-          <SaleTypeButton type={"Pix"} title={"Pix"} />
+          <SaleTypeButton type={"Money"} title={"Dinheiro"} icon={<Money size={76} />} />
+          <SaleTypeButton type={"CreditCard"} title={"Cartão"} icon={<CreditCard size={76} />}/>
+          <SaleTypeButton type={"Pix"} title={"Pix"} icon={<CurrencyCircleDollar size={76} />} />
         </div>
         <input
           type="submit"

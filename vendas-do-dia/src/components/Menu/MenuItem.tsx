@@ -15,7 +15,8 @@ export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProp
   const setShows = useSetShowComponents()
 
   function handleSetShowComponent() {
-    setShows({
+    setShows(shows => ( {
+      ...shows,
       SalesComponent: {
         isShow: buttonValue == 'sales'
       },
@@ -25,7 +26,8 @@ export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProp
       ReportComponent: {
         isShow: buttonValue == 'report'
       },
-    })
+
+    }))
   }
   
   return (
