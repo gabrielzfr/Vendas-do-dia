@@ -13,13 +13,13 @@ export function useAddSale() {
             alert('Digite uma venda válida')
         } else {
             const newSale = 
-             {type: selectedSaleType as SaleType, value: Number(saleValue), id: self.crypto.randomUUID()}
+             {type: selectedSaleType, value: Number(saleValue), id: self.crypto.randomUUID()}
 
             setSales(sales => [...sales, newSale])
 
             const localStorageSales = localStorage.getItem('Sales')
             
-            const localStorageSalesJson = localStorageSales ? JSON.parse(localStorageSales) : {}
+            const localStorageSalesJson = localStorageSales ? JSON.parse(localStorageSales) : []
 
 
             localStorage.setItem('Sales', JSON.stringify([...localStorageSalesJson, newSale]))
