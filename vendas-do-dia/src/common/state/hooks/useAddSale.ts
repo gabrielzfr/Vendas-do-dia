@@ -19,7 +19,7 @@ export function useAddSale() {
 
             const localStorageSales = localStorage.getItem('Sales')
             
-            const localStorageSalesJson = localStorageSales ? JSON.parse(localStorageSales) : {}
+            const localStorageSalesJson = localStorageSales ? JSON.parse(localStorageSales) : []
 
 
             localStorage.setItem('Sales', JSON.stringify([...localStorageSalesJson, newSale]))
