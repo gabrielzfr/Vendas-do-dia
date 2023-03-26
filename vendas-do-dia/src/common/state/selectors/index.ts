@@ -7,18 +7,18 @@ export const totalSalesState = selector({
     get: ({get}) => {
         const sales = get(salesState)
 
-        const moneySalesTotal = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
+        const totalMoneySales = sales.filter(sale => sale.type == 'Money').reduce((acc, sale) => acc + sale.value, 0)
     
-        const creditSalesTotal = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
+        const totalCreditCardSales = sales.filter(sale => sale.type == 'CreditCard').reduce((acc, sale) => acc + sale.value, 0)
     
-        const pixSalesTotal = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
+        const totalPixSales = sales.filter(sale => sale.type == 'Pix').reduce((acc, sale) => acc + sale.value, 0)
 
-        const totalSales = moneySalesTotal + creditSalesTotal + pixSalesTotal
+        const totalSales = totalMoneySales + totalCreditCardSales + totalPixSales
 
         return {
-            moneySalesTotal,
-            creditSalesTotal,
-            pixSalesTotal,
+            totalMoneySales,
+            totalCreditCardSales,
+            totalPixSales,
             totalSales
         }
 

@@ -2,12 +2,12 @@ import { useRecoilValue } from "recoil";
 import { totalSalesState } from "..";
 
 export function useTotalSalesSelector() {
-    const {moneySalesTotal, creditSalesTotal, pixSalesTotal, totalSales} = useRecoilValue(totalSalesState)
+    const {totalMoneySales, totalCreditCardSales, totalPixSales, totalSales} = useRecoilValue(totalSalesState)
 
     return {
-        moneySalesTotal,
-        creditSalesTotal,
-        pixSalesTotal, 
+        totalMoneySales,
+        totalCreditCardSales,
+        totalPixSales, 
         totalSales
     }
     
