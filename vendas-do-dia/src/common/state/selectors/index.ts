@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { selector } from "recoil";
 import { salesState } from "../atom";
 

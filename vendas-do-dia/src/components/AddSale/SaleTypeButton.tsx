@@ -1,37 +1,35 @@
-import { CreditCard, Money, CurrencyCircleDollar } from "phosphor-react"
+import { IconProps } from "phosphor-react"
 import classNames from 'classnames'
 import { SaleType } from "../../common/types/SaleType"
 import { useSelectedSaleType } from "../../common/state/hooks/useSelectedSaleTypeValue"
+import { memo, useMemo } from "react"
 
  
 interface SaleTypeButtonProps {
     type: SaleType
     title: string
+    icon: React.ReactElement<React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>>
 }
 
-export function SaleTypeButton(props:SaleTypeButtonProps) {
+function SaleTypeButton({icon, title, type}:SaleTypeButtonProps) {
     const {selectedSaleType, setSelectedSaleType} = useSelectedSaleType()
 
-    const isSelected = props.type === selectedSaleType
+    const isSelected = type === selectedSaleType
+
+    const Icon = useMemo(() => icon, [])
     
     return (
-        <button type="button" onClick={() => setSelectedSaleType(props.type)}>
+        <button type="button" onClick={() => setSelectedSaleType(type)}>
             <div className={classNames("flex items-center gap-3 transition-colors delay-75 ", {
                 'text-aquaBlue': isSelected 
             })}>
-                {
-                props.type == 'Money' ? 
-                <Money size={76} /> 
-                : props.type == 'CreditCard' ? 
-                <CreditCard size={76}/> 
-                : 
-                <CurrencyCircleDollar size={76} />   
-                }
+                {Icon}
                 <span className="text-2xl font-semibold sm:inline hidden">
-                    {props.title}
+                    {title}
                 </span>
             </div>
         </button>
     )
 }
 
+export default memo(SaleTypeButton)
