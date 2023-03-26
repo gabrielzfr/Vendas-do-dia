@@ -77,7 +77,7 @@ export function Report() {
     <span
       className="fixed z-10 w-[100%]   bg-black bg-opacity-60 flex  h-full justify-center sm:items-center"
     >
-      <div className="sm:w-[32rem] sm:h-[85%] w-full h-[calc(100vh-5rem)] bg-blackBg text-center mm:p-5 flex flex-col gap-6 overflow-y-scroll ">
+      <div className="sm:w-[32rem] sm:h-[90%] w-full h-[calc(100vh-5rem)] bg-blackBg text-center mm:p-5 flex flex-col gap-6 overflow-y-scroll ">
         {copyImageError == null ? (
           <>
             <div
