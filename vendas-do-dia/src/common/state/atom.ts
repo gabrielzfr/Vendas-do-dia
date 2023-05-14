@@ -22,7 +22,7 @@ export const showComponentsState = atom({
             isShow: true
         },
         AddSalesComponent: {
-            isShow: windowWidth > 590
+            isShow: windowWidth >590
         },
         ReportComponent: {
             isShow: false
