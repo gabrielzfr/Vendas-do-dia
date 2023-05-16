@@ -1,11 +1,11 @@
-import { AddSale } from "../components/AddSale";
+import { AddSale } from "../components/AddSaleComponents/AddSale";
 import { DaySales } from "../components/Sales/DaySales";
 import { Report } from "../components/Report";
 import { BottomMenu } from "../components/Menu/BottomMenu";
 import { useEffect } from "react";
 import { useShowComponentsValue } from "../common/state/hooks/useShowComponentsValue";
 import { useSetShowComponents } from "../common/state/hooks/useSetShowComponents";
-import { CashDesk } from "../components/CashDesk";
+import { CashDesk } from "../components/CashDeskComponents/CashDesk";
 
 export function Index() {
     let windowWidth = window.innerWidth
@@ -13,7 +13,7 @@ export function Index() {
     const setShows = useSetShowComponents()
     function updatePageWidth() {
         windowWidth = window.innerWidth;
-        if (windowWidth < 590 ) {
+        if (windowWidth > 590 ) {
             setShows(shows => ({
                 ...shows,
                 SalesComponent: {

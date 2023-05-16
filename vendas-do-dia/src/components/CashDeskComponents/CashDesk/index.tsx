@@ -1,8 +1,8 @@
 import { Pencil, Wallet, X } from "phosphor-react";
 import { useState } from "react";
-import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
-import { CashDeskIndex } from "./CashDeskIndex";
-import { EditCashDesk } from "./EditCashDesk";
+import { useSetShowComponents } from "../../../common/state/hooks/useSetShowComponents";
+import { CashDeskIndex } from "../CashDeskIndex/CashDeskIndex";
+import { EditCashDesk } from "../EditCashDesk/EditCashDesk";
 
 export function CashDesk() {
   const [isEditingCashDesk, setIsEditingCashDesk] = useState(false);

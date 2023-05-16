@@ -1,5 +1,6 @@
 import { CreditCard, CurrencyCircleDollar, Money, X } from "phosphor-react"
 import { useDeleteSale } from "../../common/state/hooks/useDeleteSales"
+import PixIcon from "../Icons/PixIcon"
 
 
 interface SaleProps {
@@ -18,7 +19,7 @@ export function Sale(props: SaleProps) {
             <Money  className="text-aquaBlue sm:w-[120px] sm:h-[120px] w-[90px] h-[90px]" /> :
             props.saleType == 'CreditCard' ? 
             <CreditCard className="text-aquaBlue sm:w-[120px] sm:h-[120px] w-[90px] h-[90px]" /> :
-            <CurrencyCircleDollar className="text-aquaBlue sm:w-[120px] sm:h-[120px] w-[90px] h-[90px]" />
+            <PixIcon  className="sm:w-[120px] sm:h-[100px] w-[90px] h-[90px]" isAquaBlue/>
         }
         
         <div className="text-center w-[calc(100%-101px)] overflow-x-auto ">

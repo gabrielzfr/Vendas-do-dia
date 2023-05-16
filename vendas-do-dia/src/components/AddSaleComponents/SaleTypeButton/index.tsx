@@ -1,8 +1,8 @@
 import { CreditCard, Money, CurrencyCircleDollar, IconProps } from "phosphor-react"
 import classNames from 'classnames'
-import { SaleType } from "../../common/types/SaleType"
-import { useSelectedSaleType } from "../../common/state/hooks/useSelectedSaleTypeValue"
-import { memo } from "react"
+import { SaleType } from "../../../common/types/SaleType"
+import { useSelectedSaleType } from "../../../common/state/hooks/useSelectedSaleTypeValue"
+import { memo, useMemo } from "react"
 
  
 interface SaleTypeButtonProps {
@@ -14,6 +14,8 @@ interface SaleTypeButtonProps {
 function SaleTypeButton({icon, title, type}:SaleTypeButtonProps) {
     const {selectedSaleType, setSelectedSaleType} = useSelectedSaleType()
 
+    const Icon = useMemo(() => icon ,[selectedSaleType])
+
     const isSelected = type === selectedSaleType
     
     return (
@@ -21,7 +23,7 @@ function SaleTypeButton({icon, title, type}:SaleTypeButtonProps) {
             <div className={classNames("flex items-center gap-3 transition-colors delay-75 ", {
                 'text-aquaBlue': isSelected 
             })}>
-                {icon}
+                {Icon}
                 <span className="text-2xl font-semibold sm:inline hidden">
                     {title}
                 </span>

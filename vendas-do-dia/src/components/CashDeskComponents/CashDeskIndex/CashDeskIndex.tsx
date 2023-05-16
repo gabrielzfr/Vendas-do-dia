@@ -1,8 +1,8 @@
 import { Pencil, Wallet, X } from "phosphor-react";
 import { useState } from "react";
-import { useCashdeskValue } from "../../common/state/hooks/useCashdeskValue";
-import { useMergeSalestoCashdesk } from "../../common/state/hooks/useMergeSalestoCashdesk";
-import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
+import { useCashdeskValue } from "../../../common/state/hooks/useCashdeskValue";
+import { useMergeSalestoCashdesk } from "../../../common/state/hooks/useMergeSalestoCashdesk";
+import { useSetShowComponents } from "../../../common/state/hooks/useSetShowComponents";
 
 interface CashDeskIndexProps {
     setIsEditingCashDesk: (type: boolean) => void

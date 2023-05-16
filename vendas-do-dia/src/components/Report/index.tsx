@@ -17,6 +17,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import { useTotalSalesSelector } from "../../common/state/selectors/hooks/useTotalSalesSelector";
 import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
+import PixIcon from "../Icons/PixIcon";
 
 export function Report() {
   const [takingPrint, isTakingPrint] = useState(false);
@@ -112,7 +113,7 @@ export function Report() {
                   value={totalCreditSales}
                 />
                 <SaleItemReport
-                  icon={<CurrencyCircleDollar size={55} />}
+                  icon={<PixIcon size={55} isAquaBlue/>}
                   title="Pix"
                   value={totalPixSales}
                 />
