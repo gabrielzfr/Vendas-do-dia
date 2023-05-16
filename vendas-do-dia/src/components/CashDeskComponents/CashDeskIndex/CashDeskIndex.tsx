@@ -12,7 +12,7 @@ export function CashDeskIndex({setIsEditingCashDesk}: CashDeskIndexProps) {
     const CashdeskValue = useCashdeskValue()
     const MergeSalestoCashdesk = useMergeSalestoCashdesk()
   return (
-        <article className="p-2 pb-10 md:w-[47.5rem] w-[97%]  bg-blackBg flex flex-col items-center gap-9 md:px-[2.5rem] border-aquaBlue border">
+        <article className="p-2 pb-10 md:w-[47.5rem] w-[97%]  bg-blackBg flex flex-col items-center gap-9 md:px-[2.5rem] border-aquaBlue border ">
             <div className="flex justify-between w-full px-4 pt-3">
                 <span className="w-[128px] flex justify-start ">
                     <button 

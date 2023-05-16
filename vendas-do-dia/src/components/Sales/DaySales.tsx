@@ -34,7 +34,7 @@ export function DaySales() {
             <input 
             type="button" 
             value="Gerar Relátorio"
-            className="bg-aquaBlue text-zinc-100   font-semibold sm:w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity w-[90%] hidden sm:block"
+            className="bg-aquaBlue font-semibold sm:w-[32rem] h-[5rem] text-4xl cursor-pointer hover:opacity-80 transition-opacity w-[90%] hidden sm:block text-blackBg"
             onClick={
                 () => setShows(shows => ({
                     ...shows,
