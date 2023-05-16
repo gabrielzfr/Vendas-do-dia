@@ -13,14 +13,14 @@ import {
 } from "phosphor-react";
 import html2canvas from "html2canvas";
 import { SaleItemReport } from "./SaleItemReport";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import classNames from "classnames";
 import { useTotalSalesSelector } from "../../common/state/selectors/hooks/useTotalSalesSelector";
 import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 import {PixIcon} from "../Icons/PixIcon";
 
 export function Report() {
-  const [takingPrint, isTakingPrint] = useState(false);
+  const [isPending, startTransition] = useTransition()
 
   const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
 
@@ -35,14 +35,11 @@ export function Report() {
   const setShowReport = useSetShowComponents();
 
   async function takeReportPrint() {
-    await isTakingPrint(true);
     const canvas = await html2canvas(document.querySelector("[data-report]")!, {
       allowTaint: true,
       removeContainer: false,
     });
     const base64Image = canvas.toDataURL("image/png");
-    setTimeout(() => isTakingPrint(false), 500);
-
     return base64Image;
   }
 
@@ -93,7 +90,7 @@ export function Report() {
                   className={classNames(
                     "cursor-pointer hover:opacity-70 transition-opacity sm:block hidden",
                     {
-                      "text-blackBg": takingPrint,
+                      "text-blackBg": isPending,
                     }
                   )}
                   onClick={CloseReportComponent}
@@ -132,10 +129,14 @@ export function Report() {
             <button
               type="button"
               className="cursor-pointer w-[15rem]  bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity p-5 text-zinc-100 flex justify-center "
-              disabled={takingPrint}
-              onClick={copyReportImage}
+              disabled={isPending}
+              onClick={ () => {
+                startTransition(() => {
+                  copyReportImage()
+                }) 
+              }}
             >
-              {takingPrint ? (
+              {isPending ? (
                 <CircleNotch className="animate-spin" size={34} />
               ) : (
                 "Copiar Relátorio"
