@@ -17,7 +17,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import { useTotalSalesSelector } from "../../common/state/selectors/hooks/useTotalSalesSelector";
 import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
-import PixIcon from "../Icons/PixIcon";
+import {PixIcon} from "../Icons/PixIcon";
 
 export function Report() {
   const [takingPrint, isTakingPrint] = useState(false);

@@ -6,7 +6,7 @@ interface PixIcon {
     isAquaBlue?: boolean
     className?: string
 }
-function PixIcon({size = 50, isAquaBlue = false, className}: PixIcon) {
+export function PixIcon({size = 50, isAquaBlue = false, className}: PixIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,5 +35,3 @@ function PixIcon({size = 50, isAquaBlue = false, className}: PixIcon) {
     </svg>
   );
 }
-
-export default PixIcon;

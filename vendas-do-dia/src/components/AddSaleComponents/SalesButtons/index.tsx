@@ -1,6 +1,6 @@
 import { CreditCard, Money } from "phosphor-react";
 import SaleTypeButton from "../SaleTypeButton";
-import PixIcon from "../../Icons/PixIcon";
+import {PixIcon} from "../../Icons/PixIcon";
 import { useSelectedSaleType } from "../../../common/state/hooks/useSelectedSaleTypeValue";
 import { memo } from "react";
 

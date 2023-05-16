@@ -1,5 +1,4 @@
-import { CreditCard, CurrencyCircleDollar, IconProps, Money, Star } from "phosphor-react"
-import { SaleType } from "../../common/types/SaleType"
+import { IconProps } from "phosphor-react"
 
 interface SaleItemReportProps {
     title: string
