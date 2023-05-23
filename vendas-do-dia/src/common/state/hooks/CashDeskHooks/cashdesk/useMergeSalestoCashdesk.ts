@@ -1,6 +1,6 @@
 import { useSetRecoilState } from "recoil";
-import { CashDeskState } from "../atom";
-import { useMoneyTotalSalesValue } from "../selectors/hooks/useMoneyTotalSalesValue";
+import { CashDeskState } from "../../../atom";
+import { useMoneyTotalSalesValue } from "../../../selectors/hooks/useMoneyTotalSalesValue";
 
 export function useMergeSalestoCashdesk() {
     const moneySales = useMoneyTotalSalesValue()

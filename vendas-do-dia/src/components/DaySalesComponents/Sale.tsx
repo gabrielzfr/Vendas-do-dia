@@ -1,7 +1,7 @@
 import { CreditCard, CurrencyCircleDollar, Money, X } from "phosphor-react"
-import { useDeleteSale } from "../../common/state/hooks/useDeleteSales"
 import {PixIcon as Pix}  from "../Icons/PixIcon"
 import { useMemo } from "react"
+import { useDeleteSale } from "../../common/state/hooks/SalesHooks/useDeleteSales"
 
 
 interface SaleProps {

@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil"
-import { salesState } from "../atom"
+import { salesState } from "../../atom"
 
 export function useDeleteSale() {
     const [sales, setSales] = useRecoilState(salesState)

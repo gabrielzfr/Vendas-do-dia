@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { IconProps} from "phosphor-react";
-import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
 import { NavItems } from "../../common/types/NavItems";
+import { useSetShowComponents } from "../../common/state/hooks/ShowComponentsHooks/useSetShowComponents";
 
 
 interface MenuItemProps {
@@ -26,6 +26,9 @@ export function MenuItem({icon, title, buttonValue, showComponent}: MenuItemProp
       ReportComponent: {
         isShow: buttonValue == 'report'
       },
+      CashDeskComponent: {
+        isShow: buttonValue == 'cashdesk'
+      }
 
     }))
   }

@@ -1,11 +1,12 @@
 import { AddSale } from "../components/AddSaleComponents/AddSale";
-import { DaySales } from "../components/Sales/DaySales";
+import { DaySales } from "../components/DaySalesComponents/DaySales";
 import { Report } from "../components/Report";
 import { BottomMenu } from "../components/Menu/BottomMenu";
 import { useEffect } from "react";
-import { useShowComponentsValue } from "../common/state/hooks/useShowComponentsValue";
-import { useSetShowComponents } from "../common/state/hooks/useSetShowComponents";
-import { CashDesk } from "../components/CashDeskComponents/CashDesk";
+
+import { CashDesk } from "../components/CashDeskComponents/CashDeskComponent";
+import { useShowComponentsValue } from "../common/state/hooks/ShowComponentsHooks/useShowComponentsValue";
+import { useSetShowComponents } from "../common/state/hooks/ShowComponentsHooks/useSetShowComponents";
 
 export function Index() {
     let windowWidth = window.innerWidth

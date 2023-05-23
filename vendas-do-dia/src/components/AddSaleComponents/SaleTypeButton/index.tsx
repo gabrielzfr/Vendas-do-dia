@@ -1,8 +1,8 @@
 import { CreditCard, Money, CurrencyCircleDollar, IconProps } from "phosphor-react"
 import classNames from 'classnames'
 import { SaleType } from "../../../common/types/SaleType"
-import { useSelectedSaleType } from "../../../common/state/hooks/useSelectedSaleTypeValue"
 import { memo, useMemo } from "react"
+import { useSelectedSaleType } from "../../../common/state/hooks/SelectedSaleHooks/useSelectedSaleType"
 
  
 interface SaleTypeButtonProps {
@@ -12,7 +12,7 @@ interface SaleTypeButtonProps {
 }
 
 function SaleTypeButton({icon, title, type}:SaleTypeButtonProps) {
-    const {selectedSaleType, setSelectedSaleType} = useSelectedSaleType()
+    const [selectedSaleType, setSelectedSaleType] = useSelectedSaleType()
 
     const Icon = useMemo(() => icon ,[selectedSaleType])
 

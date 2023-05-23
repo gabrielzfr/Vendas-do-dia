@@ -1,8 +1,6 @@
 import { Wallet } from "phosphor-react";
-import { useSalesValue } from "../../common/state/hooks/useSalesValue";
-import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
-import { Sale } from "./Sale";
 import { Sales } from "./Sales";
+import { useSetShowComponents } from "../../common/state/hooks/ShowComponentsHooks/useSetShowComponents";
 
 
 export function DaySales() {
@@ -15,7 +13,7 @@ export function DaySales() {
         </h1>
         <Sales />
         <div className="flex justify-between w-full">
-        <span className="w-[20%] flex justify-center">
+            <span className="w-[20%] sm:flex justify-center hidden">
                 <button className="">
                 <Wallet 
                     className="text-aquaBlue " 

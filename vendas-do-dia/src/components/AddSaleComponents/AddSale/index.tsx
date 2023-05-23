@@ -1,9 +1,9 @@
 import { CreditCard, CurrencyCircleDollar, Money } from "phosphor-react";
 import { FormEvent, useContext, useState } from "react";
-import { useAddSale } from "../../../common/state/hooks/useAddSale";
 import SaleTypeButton from "../SaleTypeButton";
-import PixIcon from "../../Icons/PixIcon";
+import {PixIcon} from "../../Icons/PixIcon";
 import { SalesButtons } from "../SalesButtons";
+import { useAddSale } from "../../../common/state/hooks/SalesHooks/useAddSale";
 export function AddSale() {
   const  AddNewSale = useAddSale()
 
@@ -34,7 +34,7 @@ export function AddSale() {
         <SalesButtons />
         <input
           type="submit"
-          value="Adicionar Venda"
+          value="Adicionar"
           className="w-full sm:h-[4.5rem] h-[6rem] bg-aquaBlue sm:text-2xl text-4xl cursor-pointer font-bold hover:opacity-80 transition-opacity text-blackBg"
           onClick={HandleAddSale}
         />

@@ -1,4 +1,4 @@
-import { useSalesValue } from "../../common/state/hooks/useSalesValue"
+import { useSalesValue } from "../../common/state/hooks/SalesHooks/useSalesValue"
 import { Sale } from "./Sale"
 
 export function Sales() {

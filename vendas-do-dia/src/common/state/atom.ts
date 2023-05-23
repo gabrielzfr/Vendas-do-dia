@@ -1,9 +1,11 @@
-import { atom, useRecoilValue } from "recoil";
+import { atom } from "recoil";
 import { ISales } from "../interfaces/ISales";
 import { SaleType } from "../types/SaleType";
 
 const localStorageSales = localStorage.getItem('Sales')
 const localStorageCashdesk = localStorage.getItem('Cashdesk')
+const localStorageDeposit = localStorage.getItem('Deposit')
+const localStorageWithdraw = localStorage.getItem('Withdraw')
 
 let windowWidth = window.innerWidth
 
@@ -40,8 +42,27 @@ export const showComponentsState = atom({
 )
 
 // Cashdesk 
-
-export const CashDeskState = atom({
+export const CashDeskState = atom<number>({
     key: "CashDeskState",
     default: localStorageCashdesk ? JSON.parse(localStorageCashdesk) as number : 0
+})
+
+export const cashDeskWithdraw = atom<number>({
+    key: "cashDeskWithdraw",
+    default: localStorageWithdraw ? JSON.parse(localStorageWithdraw) : 0
+})
+
+export const cashDeskDeposit = atom<number>({
+    key: "cashDeskDeposit",
+    default: localStorageDeposit ? JSON.parse(localStorageDeposit) : 0
+})
+
+export const showCashDeskWithdraw = atom<boolean>({
+    key: "showCashDeskWithdraw",
+    default: false
+})
+
+export const showCashDeskDeposit = atom<boolean>({
+    key: "showCashDeskDeposit",
+    default: false
 })

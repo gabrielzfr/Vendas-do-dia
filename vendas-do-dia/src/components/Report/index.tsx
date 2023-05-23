@@ -13,14 +13,14 @@ import {
 } from "phosphor-react";
 import html2canvas from "html2canvas";
 import { SaleItemReport } from "./SaleItemReport";
-import { useState, useTransition } from "react";
+import { useCallback, useState } from "react";
 import classNames from "classnames";
+import { PixIcon } from "../Icons/PixIcon";
+import { useSetShowComponents } from "../../common/state/hooks/ShowComponentsHooks/useSetShowComponents";
 import { useTotalSalesSelector } from "../../common/state/selectors/hooks/useTotalSalesSelector";
-import { useSetShowComponents } from "../../common/state/hooks/useSetShowComponents";
-import {PixIcon} from "../Icons/PixIcon";
 
 export function Report() {
-  const [isPending, startTransition] = useTransition()
+  const [takingPrint, isTakingPrint] = useState(false);
 
   const [copyImageError, handleCopyImageError] = useState<null | boolean>(null);
 
@@ -34,16 +34,18 @@ export function Report() {
 
   const setShowReport = useSetShowComponents();
 
-  async function takeReportPrint() {
+  const takeReportPrint = useCallback(async () => {
+    await isTakingPrint(true);
     const canvas = await html2canvas(document.querySelector("[data-report]")!, {
       allowTaint: true,
       removeContainer: false,
     });
     const base64Image = canvas.toDataURL("image/png");
-    return base64Image;
-  }
+    setTimeout(() => isTakingPrint(false), 500);
 
-  async function copyReportImage() {
+    return base64Image;
+  }, [])
+  const copyReportImage = useCallback(async () => {
     const ReportPrint = await takeReportPrint();
     const image = await fetch(ReportPrint);
     const blobImage = await image.blob();
@@ -61,16 +63,16 @@ export function Report() {
       handleCopyImageError(true);
       throw Error(String(err));
     }
-  }
-
-  function CloseReportComponent() {
+  }, [])
+  const CloseReportComponent = useCallback(() => {
     setShowReport(shows => ({
       ...shows,
       ReportComponent: {
         isShow: false,
       },
     }));
-  }
+  }, [])
+
 
   return (
     <span
@@ -90,7 +92,7 @@ export function Report() {
                   className={classNames(
                     "cursor-pointer hover:opacity-70 transition-opacity sm:block hidden",
                     {
-                      "text-blackBg": isPending,
+                      "text-blackBg": takingPrint,
                     }
                   )}
                   onClick={CloseReportComponent}
@@ -110,7 +112,7 @@ export function Report() {
                   value={totalCreditSales}
                 />
                 <SaleItemReport
-                  icon={<PixIcon size={55} isAquaBlue/>}
+                  icon={<PixIcon size={45} isAquaBlue />}
                   title="Pix"
                   value={totalPixSales}
                 />
@@ -119,24 +121,15 @@ export function Report() {
                   title="Total"
                   value={totalSales}
                 />
-                <SaleItemReport
-                  icon={<Wallet size={50} />}
-                  title="Caixa"
-                  value={totalCashdesk}
-                />
               </div>
             </div>
             <button
               type="button"
               className="cursor-pointer w-[15rem]  bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity p-5 text-zinc-100 flex justify-center "
-              disabled={isPending}
-              onClick={ () => {
-                startTransition(() => {
-                  copyReportImage()
-                }) 
-              }}
+              disabled={takingPrint}
+              onClick={copyReportImage}
             >
-              {isPending ? (
+              {takingPrint ? (
                 <CircleNotch className="animate-spin" size={34} />
               ) : (
                 "Copiar Relátorio"

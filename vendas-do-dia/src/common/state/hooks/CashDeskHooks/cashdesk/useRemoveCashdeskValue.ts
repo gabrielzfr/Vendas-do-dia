@@ -1,5 +1,5 @@
 import { useSetRecoilState } from "recoil"
-import { CashDeskState } from "../atom"
+import { CashDeskState } from "../../../atom"
 
 export function useRemoveCashdeskValue() {
     const setCashdeskValue = useSetRecoilState(CashDeskState)

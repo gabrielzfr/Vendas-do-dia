@@ -1,7 +1,7 @@
 import { FormEvent } from "react"
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
-import { SaleType } from "../../types/SaleType"
-import { salesState, selectedSaleTypeState } from "../atom"
+import { SaleType } from "../../../types/SaleType"
+import { salesState, selectedSaleTypeState } from "../../atom"
 
 export function useAddSale() {
     const setSales = useSetRecoilState(salesState)
