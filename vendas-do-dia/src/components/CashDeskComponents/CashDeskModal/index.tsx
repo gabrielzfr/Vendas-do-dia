@@ -11,10 +11,10 @@ interface Props {
 export function CashDeskModal({children, title = '', goBack, setEditing = () => {}}: Props) {
   const setShows = useSetShowComponents();
   return (
-    <article className=" md:max-w-[50rem] w-full  bg-blackBg flex flex-col gap-12 px-12 py-6 sm:border-aquaBlue sm:border">
+    <article className=" md:max-w-[55rem] w-full  bg-blackBg flex flex-col sm:gap-9 gap-5 sm:px-12 px-8 py-6 sm:border-aquaBlue sm:border overflow-scroll pb-20 justify-start sm:justify-center">
       <header className="flex justify-between w-full">
         <button
-          className="flex items-center hover:text-aquaBlue transition-colors   justify-start w-[45px]"
+          className="items-center hover:text-aquaBlue transition-colors justify-start w-[45px] flex invisible sm:visible"
           type="button"
           onClick={goBack ? () => goBack(false) : () => setEditing(true)}
           >
@@ -23,14 +23,14 @@ export function CashDeskModal({children, title = '', goBack, setEditing = () => 
             : (
               <div className="flex items-center">
               <Pencil size={45} />
-              <span className="text-xl font-semibold sm:block hidden">Editar</span>
+              <span className="text-xl font-semibold ">Editar</span>
             </div>
           )
         }
         </button>
         <span className="flex justify-center items-center gap-2 text-aquaBlue">
           <Wallet size={54} />
-          <h1 className="text-3xl font-bold">{title}</h1>
+          <h1 className="sm:text-3xl font-bold text-2xl">{title}</h1>
           
 
         </span>
@@ -49,6 +49,15 @@ export function CashDeskModal({children, title = '', goBack, setEditing = () => 
           </button>
       </header>
         {children}
+        <button
+        className="bg-aquaBlue text-black font-semibold py-5 sm:text-3xl text-2xl hover:opacity-75 transition-opacity px-8 items-center justify-center gap-1 sm:hidden flex pr-16"
+        onClick={goBack ? () => goBack(false) : () => setEditing(true)}
+        
+    >
+        {goBack ? <ArrowUUpLeft size={30}/> : <Pencil size={30}/>}
+        {goBack ? 'Voltar' : 'Editar'}
+        
+      </button>
     </article>
   )
 }

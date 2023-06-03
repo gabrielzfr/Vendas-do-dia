@@ -13,7 +13,7 @@ interface TotalValueProps {
 export function TotalValue({title = '', totalValue = 0, size = 'p', type = 'normal', addButton}: TotalValueProps) {
   return (
     <div className={classNames("flex flex-col justify-center w-full gap-2 ", {
-        'max-w-[21.5rem]' : size == 'p',
+        'sm:max-w-[23rem]' : size == 'p',
         'sm:max-w-none ': size == 'g'
     })}>
     <div className="flex justify-between w-full">
@@ -36,13 +36,13 @@ export function TotalValue({title = '', totalValue = 0, size = 'p', type = 'norm
                 </button>
         }
     </div>
-    <div className={classNames('flex bg-grayBg h-44  items-center  w-full ', {
-         'sm:h-44 sm:gap-6 sm:px-8 h-[8rem] gap-5 px-3': size == 'g',
+    <div className={classNames('flex bg-grayBg h-44  items-center  w-full overflow-x-auto', {
+         'sm:h-44 sm:gap-6 sm:px-8 h-[7rem] gap-5 px-3': size == 'g',
          'h-[6.2rem] gap-5 px-3': size == 'p',
     })}>
       <span className="w">
         <strong className={classNames(" font-semibold ", {
-            'sm:text-9xl text-[5rem]': size == 'g',
+            'sm:text-9xl text-[3.8rem]': size == 'g',
             'text-[3.8rem]': size == 'p',
             'text-green-500': type == 'green','text-aquaBlue': type == 'normal','text-grayPlaceholde3r': type == 'gray',
         })}>
@@ -50,7 +50,7 @@ export function TotalValue({title = '', totalValue = 0, size = 'p', type = 'norm
         </strong>
       </span>
       <span className={classNames("flex-1 text-center font-normal", {
-        'sm:text-9xl text-[5rem]': size == 'g',
+        'sm:text-9xl text-[3.8rem]': size == 'g',
         'text-[3.8rem]': size == 'p',
         'text-green-500': type == 'green','text-white': type == 'normal','text-grayPlaceholde3r': type == 'gray',
       })}>

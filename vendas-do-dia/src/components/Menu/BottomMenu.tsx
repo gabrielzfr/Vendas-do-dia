@@ -11,7 +11,7 @@ export function BottomMenu() {
         <MenuItem title="Vendas" icon={<Money size={50}/>} buttonValue={'sales'} showComponent={showComponents.SalesComponent.isShow}/>
         <MenuItem title="Nova Venda" icon={<ListPlus size={50} />} buttonValue={'addSales'} showComponent={showComponents.AddSalesComponent.isShow}/>
         <MenuItem title="Relátorio" icon={<Scroll size={50} />} buttonValue={'report'} showComponent={showComponents.ReportComponent.isShow}/>
-        <MenuItem title="Relátorio" icon={<Wallet size={50} />} buttonValue={'cashdesk'} showComponent={showComponents.CashDeskComponent.isShow}/>
+        <MenuItem title="Caixa" icon={<Wallet size={50} />} buttonValue={'cashdesk'} showComponent={showComponents.CashDeskComponent.isShow}/>
 
       </ul>
     </nav>

@@ -47,27 +47,31 @@ export function EditCashDesk({ setIsEditingCashDesk }: EditCashDeskProps) {
 
   return (
     <CashDeskModal title="Editando Caixa" goBack={setIsEditingCashDesk}>
-      <TotalValueInput
-        title="Total no Caixa"
-        size="g"
-        totalValue={inputCashdeskValue}
-        setTotalValue={setInputCashdeskValue}
-      />
-      <div className="flex items-center justify-between gap-1">
+      <div className="flex flex-col sm:gap-8 gap-5 bg-blackBg p-4">
+
+
         <TotalValueInput
-          title="Total da Entrada"
-          size="p"
-          totalValue={inputDepositValue}
-          setTotalValue={setInputDepositValue}
-          type="green"
+          title="Total no Caixa"
+          size="g"
+          totalValue={inputCashdeskValue}
+          setTotalValue={setInputCashdeskValue}
         />
-        <TotalValueInput
-          title="Total da Retirada"
-          size="p"
-          totalValue={inputWithdrawValue}
-          setTotalValue={setInputWithdrawValue}
-          type="gray"
-        />
+        <div className="flex items-center justify-between sm:gap-1 sm:flex-row flex-col gap-5">
+          <TotalValueInput
+            title="Total da Entrada"
+            size="p"
+            totalValue={inputDepositValue}
+            setTotalValue={setInputDepositValue}
+            type="green"
+          />
+          <TotalValueInput
+            title="Total da Retirada"
+            size="p"
+            totalValue={inputWithdrawValue}
+            setTotalValue={setInputWithdrawValue}
+            type="gray"
+          />
+        </div>
       </div>
       <button className="bg-aquaBlue text-black font-semibold py-5 text-3xl hover:opacity-75 transition-opacity px-8 h-[5rem]"
         onClick={handleConfirmEdit}

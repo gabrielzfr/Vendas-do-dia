@@ -14,7 +14,7 @@ export function AddCashDeskDeposit() {
 
   return (
     <CashDeskModal title="Adicionando Entrada" goBack={setShowDeposit}>
-      <div className="w-full h-full flex flex-col gap-14">  
+      <div className="w-full h-full flex flex-col gap-14 sm:justify-start justify-center">  
         <TotalValueInput title="Total da Entrada" totalValue={depositValue} setTotalValue={setDepositValue} size="g" type="green"/>
 
         <button className="bg-aquaBlue text-black font-semibold py-5 text-3xl hover:opacity-75 transition-opacity px-8 h-[5rem]"
