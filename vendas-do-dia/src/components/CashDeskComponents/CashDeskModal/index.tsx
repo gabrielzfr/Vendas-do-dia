@@ -11,7 +11,7 @@ interface Props {
 export function CashDeskModal({children, title = '', goBack, setEditing = () => {}}: Props) {
   const setShows = useSetShowComponents();
   return (
-    <article className=" md:max-w-[55rem] w-full  bg-blackBg flex flex-col sm:gap-9 gap-5 sm:px-12 px-8 py-6 sm:border-aquaBlue sm:border overflow-scroll pb-20 justify-start sm:justify-center">
+    <article className=" md:max-w-[55rem] w-full  bg-blackBg flex flex-col sm:gap-9 gap-5 sm:px-12 px-8 py-6 sm:border-aquaBlue sm:border overflow-scroll pb-20 justify-center sm:justify-center  ">
       <header className="flex justify-between w-full">
         <button
           className="items-center hover:text-aquaBlue transition-colors justify-start w-[45px] flex invisible sm:visible"

@@ -73,7 +73,7 @@ export function EditCashDesk({ setIsEditingCashDesk }: EditCashDeskProps) {
           />
         </div>
       </div>
-      <button className="bg-aquaBlue text-black font-semibold py-5 text-3xl hover:opacity-75 transition-opacity px-8 h-[5rem]"
+      <button className="bg-aquaBlue text-black font-semibold py-5 text-3xl hover:opacity-75 transition-opacity mx-4 h-[5rem] "
         onClick={handleConfirmEdit}
       >
         Confirmar Edição

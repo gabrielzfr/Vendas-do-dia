@@ -4,10 +4,8 @@ import {
   CircleNotch,
   ClipboardText,
   CreditCard,
-  CurrencyCircleDollar,
   Money,
   Star,
-  Wallet,
   X,
   XCircle,
 } from "phosphor-react";
@@ -29,7 +27,6 @@ export function Report() {
     totalMoneySales,
     totalPixSales,
     totalSales,
-    totalCashdesk,
   } = useTotalSalesSelector();
 
   const setShowReport = useSetShowComponents();
@@ -125,7 +122,7 @@ export function Report() {
             </div>
             <button
               type="button"
-              className="cursor-pointer w-[15rem]  bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity p-5 text-zinc-100 flex justify-center "
+              className="cursor-pointer w-[15rem]  bg-aquaBlue self-center text-[1.5rem] font-bold hover:opacity-70 transition-opacity p-5 text-zinc-900 flex justify-center "
               disabled={takingPrint}
               onClick={copyReportImage}
             >
